@@ -93,11 +93,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Dontos2012.txt" />
+    <Resource Include="Dontos2012.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="képek_súgó.txt" />
-    <Resource Include="Selejtezo2012.txt" />
+    <Resource Include="Selejtezo2012.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\AGR.png" />
