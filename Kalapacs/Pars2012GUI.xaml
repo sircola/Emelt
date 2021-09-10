@@ -1,0 +1,25 @@
+﻿<Window x:Class="Pars2012GUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pars2012GUI"
+        mc:Ignorable="d"
+        Title="London 2012 - Férfi kalapácsvetés - selejtező" Height="450" Width="450">
+    <Canvas>
+        
+        
+        <StackPanel Width="300" Height="350" Canvas.Top="30" Canvas.Left="70">
+            <Label Content="Válasszon versenyzőt!"/>
+            <ComboBox x:Name="cbNév" Width="200" HorizontalAlignment="Left" Margin="10" SelectionChanged="cbNév_SelectionChanged" />
+            <Label x:Name="lbCsoport" Content="Csop"/>
+            <Label x:Name="lbNemzet" Content="Nemezet"/>
+            <Label x:Name="lbNemzetKód" Content="Nemezet kód"/>
+            <Label x:Name="lbSorozat" Content="Sorozat"/>
+            <Label x:Name="lbEredmény" Content="Eredmény"/>
+            <Label Content="Zászló:"/>
+            <Image x:Name="imgZászló" Height="120"/>
+        </StackPanel>
+
+    </Canvas>
+</Window>

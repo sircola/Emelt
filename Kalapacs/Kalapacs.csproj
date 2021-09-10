@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BBBA218B-B93D-4BF8-BA11-E1236A85A98B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Kalapacs</RootNamespace>
+    <AssemblyName>Kalapacs</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Pars2012GUI.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Pars2012.cs" />
+    <Compile Include="Pars2012GUI.xaml.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Dontos2012.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="képek_súgó.txt" />
+    <Resource Include="Selejtezo2012.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AGR.png" />
+    <Resource Include="Images\ARG.png" />
+    <Resource Include="Images\AZE.png" />
+    <Resource Include="Images\BLR.png" />
+    <Resource Include="Images\CAN.png" />
+    <Resource Include="Images\CRO.png" />
+    <Resource Include="Images\CUB.png" />
+    <Resource Include="Images\CYP.png" />
+    <Resource Include="Images\CZE.png" />
+    <Resource Include="Images\EGY.png" />
+    <Resource Include="Images\ESP.png" />
+    <Resource Include="Images\FIN.png" />
+    <Resource Include="Images\FRA.png" />
+    <Resource Include="Images\GBR.png" />
+    <Resource Include="Images\GRE.png" />
+    <Resource Include="Images\HUN.png" />
+    <Resource Include="Images\IRI.png" />
+    <Resource Include="Images\ITA.png" />
+    <Resource Include="Images\JPN.png" />
+    <Resource Include="Images\KUW.png" />
+    <Resource Include="Images\LAT.png" />
+    <Resource Include="Images\MDA.png" />
+    <Resource Include="Images\NOR.png" />
+    <Resource Include="Images\POL.png" />
+    <Resource Include="Images\RUS.png" />
+    <Resource Include="Images\SLO.png" />
+    <Resource Include="Images\SVK.png" />
+    <Resource Include="Images\TJK.png" />
+    <Resource Include="Images\TKM.png" />
+    <Resource Include="Images\TUR.png" />
+    <Resource Include="Images\UKR.png" />
+    <Resource Include="Images\USA.png" />
+    <Resource Include="Images\UZB.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
