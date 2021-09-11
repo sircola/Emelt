@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tenisz", "Tenisz\Tenisz.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Feherjek", "Feherjek\Feherjek.csproj", "{4107489B-1E61-499E-AF91-BBCE846BD3F5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Php", "Php\Php.csproj", "{B6BAF85F-EA72-4A0B-AF92-7DBBE3FAD116}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{4107489B-1E61-499E-AF91-BBCE846BD3F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4107489B-1E61-499E-AF91-BBCE846BD3F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4107489B-1E61-499E-AF91-BBCE846BD3F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6BAF85F-EA72-4A0B-AF92-7DBBE3FAD116}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6BAF85F-EA72-4A0B-AF92-7DBBE3FAD116}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6BAF85F-EA72-4A0B-AF92-7DBBE3FAD116}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6BAF85F-EA72-4A0B-AF92-7DBBE3FAD116}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
