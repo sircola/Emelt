@@ -10,8 +10,9 @@ namespace SZTF1HF0001
     {
         static void Main(string[] args)
         {
-            int S = 491;
-            int P = 268;
+            int S = int.Parse(Console.ReadLine());
+            int P = int.Parse(Console.ReadLine());
+            
             int[] szamjegyek = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
             for( int i=S; i<S+(P*2); i+=2)

@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Python", "Python\Python.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SZTF1HF0001", "SZTF1HF0001\SZTF1HF0001.csproj", "{4E48ABB0-852E-4ABB-B44F-688071953791}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xlib", "Xlib\Xlib.csproj", "{19EA6E7B-3E43-4DFF-8F1E-E8C9336E1646}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{4E48ABB0-852E-4ABB-B44F-688071953791}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E48ABB0-852E-4ABB-B44F-688071953791}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E48ABB0-852E-4ABB-B44F-688071953791}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19EA6E7B-3E43-4DFF-8F1E-E8C9336E1646}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19EA6E7B-3E43-4DFF-8F1E-E8C9336E1646}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19EA6E7B-3E43-4DFF-8F1E-E8C9336E1646}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19EA6E7B-3E43-4DFF-8F1E-E8C9336E1646}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
