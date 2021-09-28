@@ -29,7 +29,7 @@ namespace SZTF1HF0001
             {
                 Console.Write(szamjegyek[i]);
                 if (i < 9)
-                    Console.Write(", ");
+                    Console.Write(",");
             }
         }
     }
