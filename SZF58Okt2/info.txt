@@ -1,0 +1,21 @@
+﻿adószám:
+8xxxxxyyyz
+x: szülév
+37065
+y: egy háromjegyû sorszám 000-999
+rand.Next(0,1000)
+
+z: crc
+
+input: név, szül dátum -> azon
+DateTime.Parse("éééé-hh-nn")
+new DateTime(éééé,hh,nn)
+DateTimePicker
+
+1867-01-01 + 37065
+DateTime kiindulo = new DateTime(1867, 1, 1);
+Console.WriteLine(kiindulo.AddDays(37065));
+
+5,6,skandináv lottó MDI vagy menüre kattintva
+lottó: 90 db csekbox
+elleneõrizni kell az inputot

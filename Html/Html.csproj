@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0331F4CF-915F-4CBE-A2F7-31361E9AD3E8}</ProjectGuid>
+    <ProjectGuid>{55B36912-B543-43E0-9615-FEC988B49FAE}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>SZTF4het</RootNamespace>
-    <AssemblyName>SZTF4het</AssemblyName>
+    <RootNamespace>Html</RootNamespace>
+    <AssemblyName>Html</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,12 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Ora04.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Schumi\index.html" />
+    <Content Include="Schumi\schumacher.jpg" />
+    <Content Include="Schumi\style.css" />
+    <Content Include="Schumi\url.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

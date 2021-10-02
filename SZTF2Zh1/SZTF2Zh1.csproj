@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0331F4CF-915F-4CBE-A2F7-31361E9AD3E8}</ProjectGuid>
+    <ProjectGuid>{5A787343-6779-44B3-AE6F-343BE7CA692A}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>SZTF4het</RootNamespace>
-    <AssemblyName>SZTF4het</AssemblyName>
+    <RootNamespace>SZTF2Zh1</RootNamespace>
+    <AssemblyName>SZTF2Zh1</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,9 +43,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Ora04.cs" />
+    <Compile Include="InvalidYearNumberException.cs" />
+    <Compile Include="myrandom.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StarFighter.cs" />
+    <Compile Include="StarFighterCondition.cs" />
+    <Compile Include="TieBomber.cs" />
+    <Compile Include="TieFighter.cs" />
+    <Compile Include="TieInterceptor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
