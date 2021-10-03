@@ -1,0 +1,53 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-position-x: 150px;
+    /* 1. feladat */
+    background-image: url("baseball-background.jpg");
+    background-size: 960px;
+    background-repeat: no-repeat;
+}
+
+#content {
+    padding: 20px;
+    background-color: rgba(255,255,255,0.85);
+    
+    /* 2. feladat */
+    margin: 150px auto;
+    width: 800px;
+    /* 3. feladat */
+    border-left: 2px solid red;
+    border-right: 2px solid red;
+}
+
+.frame {
+    padding:20px;
+    margin:10px;
+    
+    /* 4. feladat */
+    float:right;
+    width: 150px;
+    border-left: 2px solid black;
+}
+.frame img{
+    width: 150px;
+}
+/* 5. feladat */
+.imgcaption {
+    text-align: center;
+    font-style: italic;
+}
+
+/* 6. feladat */
+.kiemelt {
+    font-weight: bold;
+    color:red;
+}
+
+/* 7. feladat */
+a{
+    text-decoration: none;
+}
+a:hover {
+    color:red;
+}

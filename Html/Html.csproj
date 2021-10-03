@@ -50,6 +50,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Baseball\baseball-background.jpg" />
+    <Content Include="Baseball\Baseball.jpg" />
+    <Content Include="Baseball\Felbevagva.jpg" />
+    <Content Include="Baseball\index.html" />
+    <Content Include="Baseball\style.css" />
     <Content Include="Olah\corvinlanc.jpg" />
     <Content Include="Olah\index.html" />
     <Content Include="Olah\Olah_Gyorgy.jpg" />
