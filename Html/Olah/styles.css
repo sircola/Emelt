@@ -1,0 +1,105 @@
+body {
+  font-family: sans-serif;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+  background-attachment: fixed;
+
+  /* 15. feladat: */
+  background-image: url('corvinlanc.jpg');
+  background-size: cover;
+  /* 15. feladat vége */
+}
+
+#content {
+  background-color: rgba(255, 255, 255, 0.8);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  padding: 40px;
+  width: 980px;
+}
+
+.frame {
+  width: 380px;
+  float: right;
+  padding: 0px 5px 5px;
+  overflow: hidden;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.frame img {
+  width: 390px;
+  position: relative;
+  left: -5px;
+  border-bottom: 2px solid black;
+}
+
+h1,
+h2 {
+  font-variant: small-caps;
+  font-style: italic;
+}
+
+p.imgtitle {
+  font-size: 1.1em;
+  margin: 0;
+
+  /* 13. feladat: */
+  font-style: italic;
+  text-align: center;
+  line-height: 140%;
+  /* 13. feladat vége */
+}
+
+table,
+.frame {
+  border: 3px solid black;
+}
+
+a:link,
+a:visited {
+  color: black;
+}
+
+/* 14. feladat szelektorai: table, th, td, és a jellemzők beállítása*/
+table {
+  float: left;
+  margin-right: 20px;
+  border-collapse: collapse;
+  background-color: rgba(225, 225, 225, 0.8);
+}
+
+th {
+  background-color: gray;
+  color: white;
+}
+
+th,
+td {
+  border: 1px solid black;
+  padding: 15px;
+  text-align: center;
+}
+/* 14. feladat vége */
+
+
+/* 12. feladat */
+p {
+  text-indent: 20px;
+  text-align: justify;
+}
+/* 12. feladat vége*/
+
+/* 16. feladat */
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: blue;
+}
+/* 16. feladat vége */
