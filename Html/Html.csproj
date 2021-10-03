@@ -63,6 +63,14 @@
     <Content Include="Schumi\schumacher.jpg" />
     <Content Include="Schumi\style.css" />
     <Content Include="Schumi\url.txt" />
+    <Content Include="Typescript\break_statement.png" />
+    <Content Include="Typescript\continue_statement.png" />
+    <Content Include="Typescript\index.html" />
+    <Content Include="Typescript\styles.css" />
+    <Content Include="Typescript\TypeScriptBack.jpg" />
+    <Content Include="Typescript\TypeScriptLogo.png" />
+    <Content Include="Typescript\TypeScriptLoops.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

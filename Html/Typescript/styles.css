@@ -1,0 +1,92 @@
+body {
+  background-color: rgb(111, 111, 111);
+  background-size: cover;
+  /* 13. feladat */
+  background-image: url('TypeScriptBack.jpg');
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+  /* 13. feladat vége */
+}
+
+p {
+  margin: 5px;
+  text-indent: 15px;
+  line-height: 110%;
+  text-align: justify;
+}
+
+#content {
+
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 30px;
+  width: 80%;
+  padding: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  /* 12. feladat */
+  margin-bottom: 20px;
+  margin-top: 20px;
+  /* 12. feladat vége */
+}
+
+a {
+  color: black;
+  /* 17. feladat text-decoration + a:hover */
+  text-decoration: none;
+}
+
+h1 {
+  font-variant: small-caps;
+  font-style: italic;
+}
+
+table {
+  width: 90%;
+  margin: auto;
+}
+
+/* 8. feladat */
+.highlight {
+  color: #087AC8;
+  font-weight: bold;
+}
+
+.highlight:hover {
+  color: red;
+}
+/* 8. feladat vége */
+
+/* 14. feladat */
+.statement {
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+/* 14. feladat vége */
+
+/* 15. feladat */
+#logo {
+  float: right;
+  height: 200px;
+}
+/* 15. feladat vége */
+
+/* 16. feladat + középre igazítás az index.html-ben */
+td {
+  border: 1px solid gray;
+  padding: 5px;
+}
+
+th {
+  background-color: #087AC8;
+  color: white;
+}
+/* 16. feladat vége */
+
+/* 17. feladat */
+a:hover {
+  color: #087AC8;
+  text-decoration: none;
+}
+/* 17. feladat vége*/

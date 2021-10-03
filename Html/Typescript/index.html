@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html> <!-- 1. feladat: -->
+<!-- 2. feladat: -->
+<html lang="en">
+
+<head>
+	<!-- 2. feladat: -->
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="bootstrap-4.4.1-dist/css/bootstrap.min.css" />
+	<!-- 4. feladat -->
+	<title>TS Loops</title>
+	<!-- 3. feladat: -->
+	<link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+	<!-- 5. feladat: content id hozzárendelése -->
+	<!-- 6: feladat: p, h1, h2 -->
+	<div id="content">
+		<!-- 7: feladat: img, title, alt -->
+		<img src="TypeScriptLogo.png" id="logo" alt="TS logo" title="TS logo" />
+		<!-- 11. feladat: a, href, target -->
+		<h1><a href="https://www.tutorialspoint.com/typescript/typescript_loops.htm" target="_blank">TypeScript - Loops</a></h1>
+		<!-- 8. feladat: span class="highlight" 2x  -->
+		<p>You may encounter situations, when a block of code needs to be executed several number of times. In general, statements are executed sequentially: The first statement in a function is executed first, followed by the second, and so on.</p>
+		<p><span class="highlight">Programming languages</span> provide various control structures that allow for more complicated execution paths.</p>
+		<p>A loop statement allows us to execute a statement or group of statements multiple times. Given below is the general form of a loop statement in most of the programming languages.</p>
+		<p><span class="highlight">TypeScript</span> provides different types of loops to handle looping requirements. The following figure illustrates the classification of loops:</p>
+		<!-- 9. feladat: -->
+		<div class="container-fluid my-4">
+			<div class="row">
+				<div class="col-md-12 col-lg-6">
+					<img src="TypeScriptLoops.png" class="img-fluid" />
+				</div>
+				<div class="col-md-12 col-lg-6">
+					<dl>
+						<dt>Definite Loop</dt>
+						<dd>A loop whose number of iterations are definite/fixed is termed as a definite loop. The for loop is an implementation of a definite loop.</dd>
+						<dt>Indefinite Loop</dt>
+						<dd>An indefinite loop is used when the number of iterations in a loop is indeterminate or unknown.</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+		<!-- 9. feladat vége -->
+
+		<h2 class="mb-4">Statements</h2>
+
+		<!-- 10. feladat: -->
+		<!-- 16. feladat: css + text-center -->
+		<table class="table-hover">
+			<tr>
+				<th class="text-center">Statment</th>
+				<th class="text-center">Description</th>
+				<th class="text-center">Flow diagram</th>
+			</tr>
+			<tr>
+				<td class="text-center"><span class="statement">break</span></td>
+				<td class="text-center">The break statement is used to take the control out of a construct. Using break in a loop causes the program to exit the loop.</td>
+				<td><img src="break_statement.png" class="img-fluid"></td>
+			</tr>
+			<tr>
+				<td class="text-center"><span class="statement">continue</span></td>
+				<td class="text-center">The continue statement skips the subsequent statements in the current iteration and takes the control back to the beginning of the loop. Unlike the break statement, the continue doesn’t exit the loop. It terminates the current iteration and starts the subsequent iteration.</td>
+				<td><img src="continue_statement.png" class="img-fluid"></td>
+			</tr>
+		</table>
+		<!-- 10. feladat vége -->
+
+	</div>
+	<script src="bootstrap-4.4.1-dist/js/jquery.min.js"></script>
+	<script src="bootstrap-4.4.1-dist/js/tether.min.js"></script>
+	<script src="bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
+	<script src="bootstrap-4.4.1-dist/js/jquery.easing.min.js"></script>
+</body>
+
+</html>
