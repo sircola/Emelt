@@ -1,0 +1,60 @@
+A következő feladatban egy egyszerű weblapot kell készítenie, ami Oláh György magyar
+származású amerikai vegyészprofesszor munkásság mutatja be. A feladat megoldása
+során a következő állományokat kell felhasználnia: index.html, styles.css,
+olah Gyorgy.jpg, forras.txt, corvinlanc.jpga. A formázási beállításokat a
+styles.css stílusállományban végezze el, lehetőleg úgy, hogy az új szelektorok
+létrehozása a stílusállomány végén történjen! Nagyobb felbontású, színes mintát a kész
+weboldalról a minta . jog állományban talál, melyet tilos a megoldásában felhasználni!
+
+1. Nyissa meg az index html állományt! Helyezzen el hivatkozást a styles css
+stíluslapra!
+
+2. Állítsa be az oldal kódolását UTF-8-ra, a nyelvet magyarra!
+
+3. A böngésző címsorában megjelenő cím , Oláh György" legyen!
+
+4. Az oldal teljes tartalmát tartalmazó div-hez rendelje a content azonosítót (id)!
+
+5. A content azonosítójú keretben hozza létre a hi és h2 címsorszintű címeket és a
+bekezdéseket a mintának megfelelően!
+
+6. Helyezze el a képet (ulah Gyorgy. jpg) a mintának megfelelően egy keretbe (div),
+melynek osztályazonosítója frame legyen! Ha a kép fölé visszük az egeret, vagy a
+kép valamiért nem jeleníthető meg, akkor mindkét esetben az , Oláh György" felirat
+jelenjen meg!
+
+7. A kép alá, a frame osztályazonosítójú keretbe készítsen a minta szerint képaláírást!
+A képaláírás kerüljön önálló bekezdésbe, melyhez rendelje az imgtitle
+osztályazonosítót!
+
+8. Az elsőszíntű címsor után formázza az MTA és USC rövidítéseket félkövér stílusúra a
+mintának megfelelően!
+
+9. A Svéd Királyi Tudományos Akadémia nevét formázza kék színnel! Alkalmazzon
+megfelelő HTML tag-et és inline stilust a formázáshoz!
+
+10. Készítse el a , Munkássága, díjai, elismerései" alcím után található táblázatot! A
+táblázat első oszlopában lévő cellák fejléc típusú cellák legyenek!
+
+11. Alakítsa ki az elsőszintű cítn ulán lalálhaló , (kéinikus)" szövegre a forrásra hivalkozó
+linket! Az URL-t a forras.txt állományban találja meg. Oldja meg, hogy a
+hivatkozás új oldalon nyíljon meg!
+
+A következő beállításokat a styles . css stíluslapon végezze!
+
+12. Hozzon létre új elemszelektort a bekezdések formázásához! A bekezdések legyenek
+sorkizárt igazításúak és rendelkezzenek 20 képpont elsősori behúzással!
+
+13. Az imgtitle osztályba sorolt bekezdések legyenek dőltek, igazodjanak középre, és
+sormagasságuk 14094 legyen!
+
+14.Formázza a táblázatot új elemszelektorok létrehozásával a kiadott mintának
+megfelelően! A táblázat háttérszíne és átlátszósága egyezzen meg a frame
+osztályéval! A fejléc típusú cellák háttérszíne szürke (gray) legyen!
+
+15. A weboldal háttere a corvinlanc. jpg kép legyen, ami ismétlés nélkül töltse ki a
+teljes oldalt!
+
+16. Új szelektorok létrehozásával oldja meg, hogy a hivatkozások egyik állapotukban sc
+legyenek aláhúzva, ha föléjük visszük az egérkurzort, akkor kék (blue) színűek
+legyenek!

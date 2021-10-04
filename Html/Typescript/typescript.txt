@@ -1,0 +1,66 @@
+A következő feladatban egy angol nyelvű weblapot fog készíteni, amely a TypeScript
+programozási nyelv operátorait ismerteti. A feladat megoldása során a következő
+állományokat kell felhasználnia: index.html, styles.css, TypeScriptLogo.png,
+TypeScriptBack.jpg,  forras.txt. Nagy felbontású, színes mintát a kész
+weboldalról a minta . jpg állományban talál, melyet tilos a megoldásában felhasználni!
+
+1. Nyissa meg az index.html állományt! Helyezzen el HTMLS5-ös dokumentumtípus
+definíciót az első sorba!
+
+2. Állítsa be az oldal kódolását UTF-8-ra, a nyelvet angolra (en)!
+
+3. Az index.htm állományba helyezzen el hivatkozást a styles . css stíluslapra!
+
+4. A böngésző címsorában megjelenő cím ,, TS Operators" legyen!
+
+5. Az oldalt tartalmazó kerethez (div) rendelje a content azonosítót (id)!
+
+6. A content azonosítójú keretben lévő szöveget sorolja bekezdésekbe a minta szerint,
+és alakítsa ki ah1 és h2 címsorszintű címeket!
+
+7. Helyezze el a TypeScriptLogo.png képet a content azonosítójú keret első
+elemeként! A kép azonosítója picture legyen! Ha a kép fölé visszük az egeret, vagy
+a kép valamiért nem jeleníthető meg. akkor mindkét esetben ,.TS logo" felirat jelenjen
+meg!
+
+8. A bekezdésekben az , operands" és , operators" szavakat formázza H087ACB8 kódú
+betűszínnel és félkövér betűstílussal! A megoldáshoz használjon cspans taget és
+megfelelő típusú szelektort! A CSS beállításokat a styles.css állományban
+helyezze el új szelektor létrehozásával!
+
+9. Alakítsa ki a felsorolást a minta szerint!
+
+10. Alakítsa ki a táblázat szerkezetét a minta szerint! A táblázathoz rendelje a table-
+hover Bootstrap osztályt! Az első sorban lévő cellák fejléccella-típusúak legyenek!
+A táblázat formázására később talál feladatokat.
+
+11. Alakítsa ki a ,. TypeScript - Operators" címre a forrásra hivatkozó linket! Az URL-t a
+forras.txt állományban találja meg. Oldja meg, hogy a hivatkozás új oldalon
+nyíljon meg!
+
+A következő beállításokat a styles . css stíluslapon végezze új szelektorok létrehozásával
+vagy a meglévők bövítésével!
+
+12.A content azonosítójú keret szélessége a rendelkezésre álló terület 8096-a, belső
+margója (bélése) 30 képpont értékű legyen, és vízszintesen a weboldal közepén
+helyezkedjen el!
+
+13. Állítsa be az oldal hátterének a TypeScriptBack . jpg állományt, ami ismétlés
+nélkül kerüljön az oldal közepére függőlegesen és vízszintesen is!
+
+14. Új elemszelektor létrehozásával oldja meg, hogy a 7 4 5 - 12 kifejezés
+Courier New (monospace) betűtípussal, félkövér betűstílussal és 2 .8rem
+mérettel jelenjen meg! A feladathoz módosítsa az index . html állományt is!
+
+15. A bekezdések igazítása sorkizárt, sormagasságuk 12096-os legyen! Oldja meg, hogy a
+bekezdések ne rendelkezzenek elsősori behúzással!
+
+16.A táblázat cellái 1 képpont vastag folytonos szürke (gray) vonallal legyenek
+szegélyezve! Állítson 5 képpont belső margót a megfelelő típusú cellákra a minta
+szerint! A fejléccellák előtérszíne fehér, a háttérszínük $087AC8 színkódú legyen!
+Oldja meg, hogy a cellákban lévő tartalom vízszintesen középre legyen igazítva! Az
+utóbbi feladatot az index.html állományban Bootstrap osztályok felhasználásával
+is megoldhatja.
+
+17.A linkek (hivatkozások) szövegei ne legyenek aláhúzva, ha az egérkurzor föléjük
+kerül, akkor színük ebben az állapotban $O87ACB színkódú legyen!

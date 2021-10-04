@@ -60,11 +60,13 @@
     <Content Include="Olah\corvinlanc.jpg" />
     <Content Include="Olah\index.html" />
     <Content Include="Olah\olah.png" />
+    <Content Include="Olah\olah.txt" />
     <Content Include="Olah\Olah_Gyorgy.jpg" />
     <Content Include="Olah\styles.css" />
     <Content Include="Schumi\index.html" />
     <Content Include="Schumi\schumacher.jpg" />
     <Content Include="Schumi\schumi.png" />
+    <Content Include="Schumi\schumi.txt" />
     <Content Include="Schumi\style.css" />
     <Content Include="Schumi\url.txt" />
     <Content Include="Typescript\break_statement.png" />
@@ -72,6 +74,7 @@
     <Content Include="Typescript\index.html" />
     <Content Include="Typescript\styles.css" />
     <Content Include="Typescript\typescript.png" />
+    <Content Include="Typescript\typescript.txt" />
     <Content Include="Typescript\TypeScriptBack.jpg" />
     <Content Include="Typescript\TypeScriptLogo.png" />
     <Content Include="Typescript\TypeScriptLoops.png" />

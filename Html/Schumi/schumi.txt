@@ -1,0 +1,72 @@
+A következő feladatban egy egyszerű weblapot fog készíteni, ami a híres Forma 1-es
+autóversenyzőről, Michael Schumacherről szól. A feladat megoldása során a következő
+állományokat kell felhasználnia: index.html, style.css, schumacher .jpg,
+url.txt. Nagyobb felbontású, színes mintát a kész weboldalról a minta.png
+állományban talál, melyet tilos a megoldásában felhasználni!
+
+1. Nyissa meg az index.html állományt! Helyezzen el HTML5-ös dokumentumtípus
+definíciót az első sorba!
+
+2. Az index.htm! állományba helyezzen el hivatkozást a style . css stiluslapra!
+
+3. Állítsa be az oldal kódolását UTF-8-ra, a nyelvet magyarra!
+
+4. A böngésző címsorában megjelenő cím , Michael Schumacher" legyen!
+
+5. Hozzon létre keretet (div), ami a teljes oldalt tartalmazni fogja. Az oldal teljes
+tartalmát tartalmazó di v-hez rendelje a tartalom azonosítót (id)!
+
+6. A tartalom azonosítójú keretben hozza létre a h1 és h2 címsorszintű címeket a
+mintának megfelelően!
+
+7. Alakítsa ki a bekezdéseket a minta alapján!
+
+8. Oldja meg, hogy a szövegben szereplő autóversenyzők neve (Michael Schumacher,
+Jacgues Villeneuve, Ralf Schumacher, Mick Schumacher) félkövér betüstílusúak
+legyenek!
+
+9. Az első címsor végén helyezzen -el egy csillag karaktert, amire alakítson ki
+hivatkozást! A hivatkozás címét megtalálja az ur1 . txt állományban, a hivatkozás új
+ablakban nyíljon meg! A csillag karakter kerüljön felső
+
+10. indexbe!
+
+11.A h1-es címsorszintű címet követően hozzon létre egy keretet fénykép
+osztályazonosítóval!
+
+12. Helyezze el a képet (schumacher. jpg) a mintának megfelelően a fénykép
+osztályazonosítójú keretbe! Ha a kép fölé visszük az egérkurzort, vagy a kép valamiért
+nem jeleníthető meg, akkor mindkét esetben , Michael Schumacher" felirat jelenjen
+meg!
+
+13. Alakítsa ki a rekordokat tartalmazó táblázatot a mintának megfelelően! A táblázat első
+sorában lévő cellák fejléctípusú cellák legyenek!
+
+A következő beállításokat a style. css stíluslapon végezze új szelektorok
+létrehozásával vagy a meglévők bővítésével!
+
+14. Új szelektor létrehozásával oldja meg, hogy a weboldal betűszíne tengerészkék
+(navy) legyen! A teljes weboldalon Verdana betűstílussal jelenjenek meg a szövegek,
+amennyiben Verdana nem áll rendelkezésre, helyette Arial betűtípust használjon a
+böngésző a megjelenítéshez!
+
+15. Hozzon létre új elemszelektort a tartalom azonosítójú elem formázásához!
+A tartalom azonosítójú elem szélessége 960 képpont legyen! A tartalom
+azonosítójú elem magassága töltse ki a böngészőt teljesen (a magasság értéke 100vh
+legyen)!
+
+16.A tartalom azonosítójú elem felső margója 0 értékű legyen, vízszintesen a
+weboldal közepén helyezkedjen el!
+
+17.A tartalom azonosítójú elem háttérszíne égkék (skyblue) legyen, bal oldalán
+15 képpont vastag kék (blue) színű dupla stílusú keret legyen látható!
+
+18. Új szelektor létrehozásával oldja meg, hogy a bekezdések igazítása legyen sorkizárt!
+
+19. A bekezdések körül legyen 10 képpontos belső margó (bélés)!
+
+20.A fénykép osztályazonosítójú elemben elhelyezkedő kép lebegjen jobbra, és
+150 képpont széles legyen a minta szerint!
+
+21.A linkek (hivatkozások) szövegei alapértelmezetten ne legyenek aláhúzva, színük
+minden állapotban legyen fehér!
