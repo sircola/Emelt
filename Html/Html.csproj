@@ -48,12 +48,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Baseball\baseball.pdf" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Baseball\baseball-background.jpg" />
     <Content Include="Baseball\Baseball.jpg" />
     <Content Include="Baseball\baseball.png" />
+    <Content Include="Baseball\baseball.txt" />
     <Content Include="Baseball\Felbevagva.jpg" />
     <Content Include="Baseball\index.html" />
     <Content Include="Baseball\style.css" />

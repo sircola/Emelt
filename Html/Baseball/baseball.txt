@@ -1,0 +1,67 @@
+A következő feladatban egy egyszerű weblapot fog készíteni, ami a baseball-labda
+történetéről szól. A feladat megoldása során a következő állományokat kell
+felhasználnia: index.html, style.css, baseball.jpg, baseball-
+background.jpg, Felbevagva.jpg, url.txt. Nagyobb felbontású, színes mintát a
+kész weboldalról a minta.png állományban talál, melyet tilos a megoldásában
+felhasználni!
+
+1. Nyissa meg az index.html állományt! Helyezzen el HTMLS5-ös dokumentumtípus
+definíciót az első sorba!
+
+2. Az index.html állományba helyezzen el hivatkozást a style. css stíluslapra!
+
+3. Állítsa be az oldal kódolását UTF-8-ra, a nyelvet magyarra!
+
+4. A böngésző címsorában megjelenő cím , Baseball-labda" legyen!
+
+5. Hozzon létre keretet (div), ami a teljes oldalt tartalmazni fogja. Az oldal teljes
+tartalmát tartalmazó div-hez rendelje a content azonosítót (id)!
+
+6. A tartalom azonosítójú keretben hozza létre a h1-es és h2-es címsorszintű
+címeket a mintának megfelelően!
+
+7. Hozzon létre egy keretet (div) a második szintű címsort követően és helyezze el
+benne a félbevágott baseball-labdák képét (Felbevagva.jpg) a mintának
+megfelelően! A kerethez rendelje hozzá a frame osztályazonosítót!
+
+8. A frame osztályazonosítójú kereten belül, a kép alá helyezze a , Félbevágott
+baseball-labdák..." — kezdetű — bekezdést, és lássa el az  imgcaption
+osztályazonosítóval!
+
+9. A bekezdésekben sorolja a kiemelt osztályba a , Major League" szó minden
+előfordulását span tagok felhasználásával (5 db)!
+
+10. A , Napjainkban a Major League mérkőzésein..." kezdetű bekezdést követően hozzon
+létre keretet (di v), amelybe helyezze el az Baseball . jpg képet! A keretet lássa el
+frame osztályazonosítóval!
+
+11.Ha a kép fölé visszük az egeret, vagy a kép valamiért nem jeleníthető meg, akkor
+mindkét esetben , baseball-labda" jelenjen meg!
+
+12. Alakítsa ki a cím után található csillag karakterre a forrásra hivatkozó linket a minta
+szerint! Az URL-t az url.txt állományban találja meg! Oldja meg, hogy a
+hivatkozás új oldalon nyíljon meg!
+
+A következő beállításokat a style . css stíluslapon végezze!
+
+1. A weboldal háttere a baseball-backgroundá. jpg kép legyen, a háttér mérete
+960 képpont legyen és ne ismétlődjön!
+
+2. A content azonosítójú elem szélessége 800 képpont legyen! A content
+azonosítójú elem felső margója 150 képpont legyen, és vízszintesen a weboldal
+közepén helyezkedjen el!
+
+3. A content azonosítójú elem bal és jobb oldalán 2 képpont vastag folytonos vörös
+(red) vonal legyen!
+
+4. A frame osztályazonosítójú elemek lebegjenek jobbra, 150 képpont szélesek
+legyenek, és a bal oldalukon 2 képpont vastag folytonos fekete szegély legyen!
+
+5. Az imgcaption osztályazonosítóval ellátott szövegek rendeződjenek középre, és
+legyenek dőlt betűstílusúak!
+
+6. A kiemelt osztályazonosítóval ellátott szövegek stílusa legyen félkövér és a színük
+vörös (red)!
+
+7. Oldja meg, hogy az oldalon lévő link (hivatkozás) alapértelmezetten ne legyen
+aláhúzva! Színe, ha a link fölé visszük az egérkurzort, váltson vörösre (red)!
