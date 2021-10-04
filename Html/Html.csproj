@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Baseball\baseball.pdf" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Baseball\baseball-background.jpg" />
