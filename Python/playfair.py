@@ -1,20 +1,16 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
-# To change this license header, choose License Headers in Project Properties.
-# To change this template file, choose Tools | Templates
-# and open the template in the editor.
 
 __author__ = "Kirschner Bernát"
 __date__ = "$2021.09.05. 12:45:19$"
 
-#  nagy betüs lesz, q x-re lesz cserélve, speckó kari nuku
+# q x-re lesz cserélve
 # kodolando = "Ciao q Baby!!1"
 # kodolando = "Kwisatz Haderach"
 kodolando = "reboot Watt wall week Common Greetings"
 
-# 5 x 5 mátrix Q nincs benne
-kodolo = ["PLAMF", "BCDGH", "TUVIX", "KNOWS", "JERZY"]
-
+# kódtáblába a Q nincs benne, hogy hasnlitson a Playfair-re
+kodolo = ["PLAMF", "BCDGH", "TUVIX", "KNOWS", "JERZY", "plamf", "bcdgh", "tuvix", "knows", "jerzy", ',. ?!"' ]
 
 def sorindex(a):
 	i = 0
@@ -33,11 +29,11 @@ def oszlopindex(a):
 
 def kodolazonossorban(sor, oszlop1, oszlop2):
 	kodoltOszlopIndex1 = oszlop1 + 1
-	if kodoltOszlopIndex1 == 5:
+	if kodoltOszlopIndex1 == len(kodolo[0]):
         	kodoltOszlopIndex1 = 0
 	kodoltKarakter1 = kodolo[sor][kodoltOszlopIndex1]
 	kodoltOszlopIndex2 = oszlop2 + 1
-	if kodoltOszlopIndex2 == 5:
+	if kodoltOszlopIndex2 == len(kodolo[0]):
 		kodoltOszlopIndex2 = 0
 	kodoltKarakter2 = kodolo[sor][kodoltOszlopIndex2]
 	return kodoltKarakter1 + kodoltKarakter2
@@ -45,11 +41,11 @@ def kodolazonossorban(sor, oszlop1, oszlop2):
 
 def kodolazonososzlopban(oszlop, sor1, sor2):
 	kodoltSorIndex1 = sor1 + 1
-	if kodoltSorIndex1 == 5:
+	if kodoltSorIndex1 == len(kodolo):
 		kodoltSorIndex1 = 0
 	kodoltKarakter1 = kodolo[kodoltSorIndex1][oszlop]
 	kodoltSorIndex2 = sor2 + 1
-	if kodoltSorIndex2 == 5:
+	if kodoltSorIndex2 == len(kodolo):
 		kodoltSorIndex2 = 0
 	kodoltKarakter2 = kodolo[kodoltSorIndex2][oszlop]
 	return kodoltKarakter1 + kodoltKarakter2
@@ -73,11 +69,12 @@ def kodolbetupar(betupar):
 	return kodolteglalapalak(sorBetu1, oszlopBetu1, sorBetu2, oszlopBetu2)
 
 def titkosit(szoveg):
-	# csak angol ABC, no szokoz
-	s = ''.join(filter( lambda x: x in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', szoveg.upper() ))
+
+	s = ''.join(filter( lambda x: x in ''.join(kodolo), szoveg ))
 
 	# Q betu kimarad
 	s = s.replace('Q','X')
+	s = s.replace('q','x')
 
 	# dupla karik szetszedése
 	i=0
@@ -103,22 +100,22 @@ def titkosit(szoveg):
 def dekodolazonossorban(sor, oszlop1, oszlop2):
 	kodoltOszlopIndex1 = oszlop1 - 1
 	if kodoltOszlopIndex1 == -1:
-        	kodoltOszlopIndex1 = 4
+        	kodoltOszlopIndex1 = len(kodolo[0])-1
 	kodoltKarakter1 = kodolo[sor][kodoltOszlopIndex1]
 	kodoltOszlopIndex2 = oszlop2 - 1
 	if kodoltOszlopIndex2 == -1:
-		kodoltOszlopIndex2 = 4
+		kodoltOszlopIndex2 = len(kodolo[0])-1
 	kodoltKarakter2 = kodolo[sor][kodoltOszlopIndex2]
 	return kodoltKarakter1 + kodoltKarakter2
 
 def dekodolazonososzlopban(oszlop, sor1, sor2):
 	kodoltSorIndex1 = sor1 - 1
 	if kodoltSorIndex1 == -1:
-		kodoltSorIndex1 = 4
+		kodoltSorIndex1 = len(kodolo)-1
 	kodoltKarakter1 = kodolo[kodoltSorIndex1][oszlop]
 	kodoltSorIndex2 = sor2 - 1
 	if kodoltSorIndex2 == -1:
-		kodoltSorIndex2 = 4
+		kodoltSorIndex2 = len(kodolo)-1
 	kodoltKarakter2 = kodolo[kodoltSorIndex2][oszlop]
 	return kodoltKarakter1 + kodoltKarakter2
 
