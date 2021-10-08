@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B6BAF85F-EA72-4A0B-AF92-7DBBE3FAD116}</ProjectGuid>
+    <ProjectGuid>{D18F07B6-B739-4A26-9A5D-827C5C7ECAC2}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Php</RootNamespace>
-    <AssemblyName>Php</AssemblyName>
+    <RootNamespace>SZTF15het</RootNamespace>
+    <AssemblyName>SZTF15het</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -48,39 +48,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Hataridonaplo\index.php" />
-    <None Include="Hataridonaplo\kapcsolat.php" />
-    <None Include="Hirdetes\feltoltes.php" />
-    <None Include="Hirdetes\hirdeteseim.php" />
-    <None Include="Hirdetes\index.php" />
-    <None Include="Hirdetes\licit.php" />
-    <None Include="Hirdetes\regisztracio.php" />
-    <None Include="Meetbar\abkapcs.php" />
-    <None Include="Meetbar\beszur.php" />
-    <None Include="Meetbar\index.php" />
-    <None Include="Meetbar\keres.php" />
-    <None Include="Meetbar\menu.php" />
-    <None Include="Meetbar\torol.php" />
-    <None Include="Okjwebapp1\admin.php" />
-    <None Include="Okjwebapp1\index.php" />
-    <None Include="Okjwebapp1\login.php" />
-    <None Include="Okjwebapp1\regisztracio.php" />
-    <None Include="Pelda3\index.php" />
-    <None Include="Pelda3\napi.php" />
-    <None Include="Pelda4\index.php" />
-    <None Include="Pelda4\login.php" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Hirdetes\hirdetes.sql" />
-    <Content Include="Meetbar\nagyito.JPG" />
-    <Content Include="Meetbar\pirosX.JPG" />
-    <Content Include="Meetbar\stilus.css" />
-    <Content Include="Meetbar\szendvics.JPG" />
-    <Content Include="Meetbar\szendvicsbar.sql" />
-    <Content Include="Meetbar\toll.JPG" />
-    <Content Include="Okjwebapp1\formatumok.css" />
-    <Content Include="Okjwebapp1\webapp1.sql" />
-    <Content Include="Pelda3\pelda.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

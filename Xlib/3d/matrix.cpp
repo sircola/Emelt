@@ -1,3 +1,4 @@
+/* Copyright (C) 1997 Kirschner, Bernát. All Rights Reserved Worldwide. */
 
 #include <math.h>
 #include <float.h>
