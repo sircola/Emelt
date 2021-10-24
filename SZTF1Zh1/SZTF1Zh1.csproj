@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0D7036F2-BFFF-4C04-A7E8-E0EFA58A039B}</ProjectGuid>
+    <ProjectGuid>{4E121C12-A055-4A40-BE09-140BED9F5FF1}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>SZTF17het</RootNamespace>
-    <AssemblyName>SZTF17het</AssemblyName>
+    <RootNamespace>SZTF1Zh1</RootNamespace>
+    <AssemblyName>SZTF1Zh1</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,8 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Macskás.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ZH1_gyak.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
