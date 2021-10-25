@@ -8,7 +8,7 @@ namespace MintaZH1_L3_macskas
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Macs_Main(string[] args)
         {
             string[] korzetek = new string[2];
 

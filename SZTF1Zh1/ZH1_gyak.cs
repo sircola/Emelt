@@ -21,7 +21,7 @@ namespace ZH1_Scrabble
 
     class Program
     {
-        static void Main(string[] args)
+        static void Gyak_Main(string[] args)
         {
             Console.Write("Hány darab szót szerene megadni? ");
             string[,] words = new string[int.Parse(Console.ReadLine()), 2];
