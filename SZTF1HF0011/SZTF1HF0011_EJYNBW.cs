@@ -6,14 +6,8 @@ namespace SZTF1HF0011
     {
         static void Csere( string S, string P, int N, int MIN, int MAX) {
 
-            if (N < 0)
-                return;
-
             if (N == 0)
             {
-                if( S.Length < MIN)
-                    return;
-
                 for (int i = MIN-1; i < MAX; i++)
                     if (i < S.Length)
                         Console.Write(S[i]);
@@ -33,7 +27,7 @@ namespace SZTF1HF0011
             }
             S = s;
 
-            if(S.Length <= MAX )
+             if(S.Length <= MAX )
                 Csere(S, P, --N, MIN, MAX);
             else 
                 Csere(S, P, 0, MIN, MAX);
@@ -47,6 +41,12 @@ namespace SZTF1HF0011
             int MIN = int.Parse(Console.ReadLine());
             int MAX = int.Parse(Console.ReadLine());
 
+            if (!P.Contains('$'.ToString()))
+            {
+                S = P;
+                N = 0;
+            }
+             
             Csere(S,P,N,MIN,MAX);
         }
     }
