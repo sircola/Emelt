@@ -41,7 +41,7 @@ namespace SZTF1HF0011
             int MIN = int.Parse(Console.ReadLine());
             int MAX = int.Parse(Console.ReadLine());
 
-            if (!P.Contains('$'.ToString()))
+            if (!P.Contains("$"))
             {
                 S = P;
                 N = 0;
