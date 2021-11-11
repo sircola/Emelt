@@ -42,11 +42,8 @@ namespace SZTF1HF0011
             int MAX = int.Parse(Console.ReadLine());
 
             if (!P.Contains("$"))
-            {
-                S = P;
                 N = 0;
-            }
-             
+
             Csere(S,P,N,MIN,MAX);
         }
     }
