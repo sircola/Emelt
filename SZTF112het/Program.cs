@@ -119,7 +119,7 @@ namespace SZTF112
             string[] users = File.ReadAllLines(path);
             for (int i = 0; i < users.Length; i++)
             {
-                string[] user = users[i].Split("#");
+                string[] user = users[i].Split('#');
                 if (user[0] == userName && int.Parse(user[1]) == (int)userRole && user[2] == password)
                     return true;
             }
