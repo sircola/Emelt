@@ -1,49 +1,59 @@
 ﻿using System;
 using System.IO;
 
-
 namespace SZTF1HF0012
 {
     class Program
     {
-        static int variáció = 1;
+        static int N;
+        static int variáció = 0;
+        static StreamReader sr;
 
-         static void KiértékelIf( StreamReader sr )
+        static void KiértékelElse()
         {
-            ++variáció;
+            string s = sr.ReadLine();
+            --N;
 
-            string s = sr.ReadLine().Trim();
+            if (s == "endif")
+                ++variáció;
+            else
+            if (s == "if")
+                KiértékelIf();
+        }
+
+        static void KiértékelIf()
+        {
+            string s = sr.ReadLine();
+            --N;
 
             if (s == "else")
-                KiértékelIf(sr);
-
+            {
+                ++variáció;
+                KiértékelElse();
+            }
+            else
             if (s == "if")
-                KiértékelIf(sr);
-
-            if ( s == "endif")
-                return;
-
- 
+                KiértékelIf();
+            else
+            if (s == "end" && variáció == 0)
+                ++variáció;
         }
 
         static void Main(string[] args)
         {
-            StreamReader sr = new StreamReader("input.txt");
+            sr = new StreamReader("input.txt");
 
-            int N = int.Parse(sr.ReadLine());
+            N = int.Parse(sr.ReadLine());
 
             sr.ReadLine();
+            --N;
 
-            if( sr.ReadLine() == "if" )
-                KiértékelIf(sr);
+            while( N>0 )
+                KiértékelIf();
 
             sr.Close();
 
-            StreamWriter sw = new StreamWriter("output.txt");
-            
-            sw.WriteLine(variáció);
-            
-            sw.Close();
+            File.WriteAllText("output.txt", variáció.ToString());
         }
     }
 }
