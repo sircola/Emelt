@@ -6,54 +6,80 @@ namespace SZTF1HF0012
     class Program
     {
         static int N;
-        static int variáció = 0;
         static StreamReader sr;
+        static int[] szintek = new int[0];
 
-        static void KiértékelElse()
+        static void NövelSzint( int szint )
         {
-            string s = sr.ReadLine();
+            if( szintek.Length < szint+1 )
+            {
+                int[] új = new int[szint + 1];
+                for (int i = 0; i < szintek.Length; i++)
+                    új[i] = szintek[i];
+                szintek = új;
+            }
+            szintek[szint] = szintek[szint] + 1;
+        }
+
+        static int Számol()
+        {
+            File.Delete("output.txt");
+            for (int i = 0; i < szintek.Length; i++)
+            {
+                File.AppendAllText("output.txt", "" + szintek[i].ToString() + "\n");
+            }
+            return szintek.Length;
+        }
+
+        static void KiértékelElse( int szint )
+        {
+            string s = sr.ReadLine().Trim();
             --N;
 
             if (s == "endif")
-                ++variáció;
+                NövelSzint(szint);
             else
             if (s == "if")
-                KiértékelIf();
+                KiértékelIf(szint+1);
         }
 
-        static void KiértékelIf()
+        static void KiértékelIf( int szint )
         {
-            string s = sr.ReadLine();
+            string s = sr.ReadLine().Trim();
             --N;
 
             if (s == "else")
             {
-                ++variáció;
-                KiértékelElse();
+                NövelSzint(szint);
+                KiértékelElse(szint);
             }
             else
             if (s == "if")
-                KiértékelIf();
-            else
-            if (s == "end" && variáció == 0)
-                ++variáció;
+                KiértékelIf(szint+1);
         }
 
         static void Main(string[] args)
         {
-            sr = new StreamReader("input.txt");
+            sr = new StreamReader("input1.txt");
 
-            N = int.Parse(sr.ReadLine());
+            N = int.Parse(sr.ReadLine().Trim());
 
-            sr.ReadLine();
+            sr.ReadLine().Trim();
             --N;
 
-            while( N>0 )
-                KiértékelIf();
+            NövelSzint(0);
+
+            while (N > 0)
+            {
+                KiértékelIf(0);
+                if ( N>0 )
+                    KiértékelElse(0);
+            }
 
             sr.Close();
 
-            File.WriteAllText("output.txt", variáció.ToString());
+            Számol();
+            // File.WriteAllText("output.txt", Számol().ToString());
         }
     }
 }
