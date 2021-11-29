@@ -51,65 +51,65 @@ class Analyzer
         }
     }
 
-}
-
-static class FileHandler
-{
-    public static string srcPath { get; set; }
-    public static string dstPath { get; set; }
-
-    public static string[] Load()
+    static class FileHandler
     {
-        StreamReader sr = new StreamReader(srcPath);
-        int i = 0;
-        string[] tomb = new string[int.Parse(sr.ReadLine())];
-        while (!sr.EndOfStream)
-            tomb[i++] = sr.ReadLine();
-        sr.Close();
-        return tomb;
-    }
-    public static void Append(string hozzafuzendo)
-    {
-        StreamWriter sw = new StreamWriter(dstPath, true);
-        sw.WriteLine(hozzafuzendo);
-        sw.Close();
-    }
-}
+        public static string srcPath { get; set; }
+        public static string dstPath { get; set; }
 
-enum FaultCause { OS, AC, OK }
-class Phone
-{
-    public string ID { get; }
-    public string Type { get; }
-    public int[] BatteryLevels { get; }
-    public FaultCause FC { get; set; }
-
-    public Phone(string id, string type, string[] batterLevels)
-    {
-        ID = id;
-        Type = type;
-        BatteryLevels = new int[batterLevels.Length];
-        for (int i = 0; i < batterLevels.Length; i++)
+        public static string[] Load()
         {
-            BatteryLevels[i] = int.Parse(batterLevels[i]);
+            StreamReader sr = new StreamReader(srcPath);
+            int i = 0;
+            string[] tomb = new string[int.Parse(sr.ReadLine())];
+            while (!sr.EndOfStream)
+                tomb[i++] = sr.ReadLine();
+            sr.Close();
+            return tomb;
         }
-        FC = FaultCause.OK;
+        public static void Append(string hozzafuzendo)
+        {
+            StreamWriter sw = new StreamWriter(dstPath, true);
+            sw.WriteLine(hozzafuzendo);
+            sw.Close();
+        }
     }
 
-    public override string ToString()
+    enum FaultCause { OS, AC, OK }
+    class Phone
     {
-        return $"{ID}:{FC}";
+        public string ID { get; }
+        public string Type { get; }
+        public int[] BatteryLevels { get; }
+        public FaultCause FC { get; set; }
+
+        public Phone(string id, string type, string[] batterLevels)
+        {
+            ID = id;
+            Type = type;
+            BatteryLevels = new int[batterLevels.Length];
+            for (int i = 0; i < batterLevels.Length; i++)
+            {
+                BatteryLevels[i] = int.Parse(batterLevels[i]);
+            }
+            FC = FaultCause.OK;
+        }
+
+        public override string ToString()
+        {
+            return $"{ID}:{FC}";
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            FileHandler.srcPath = "MONITORING.DAT";
+            FileHandler.dstPath = "ANALYSIS.RESULT";
+            Analyzer analyzer = new Analyzer();
+            analyzer.Analysis();
+            ;
+        }
     }
 }
 
-class ZHPrg
-{
-    static void Main(string[] args)
-    {
-        FileHandler.srcPath = "MONITORING.DAT";
-        FileHandler.dstPath = "ANALYSIS.RESULT";
-        Analyzer analyzer = new Analyzer();
-        analyzer.Analysis();
-        ;
-    }
-}

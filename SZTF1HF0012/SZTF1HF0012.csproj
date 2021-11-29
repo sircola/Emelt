@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="matt1.cs" />
     <Compile Include="SZTF1HF0012_EJYNBW.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
