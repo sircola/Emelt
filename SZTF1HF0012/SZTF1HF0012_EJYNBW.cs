@@ -79,7 +79,6 @@ namespace SZTF1HF0012
             sr.Close();
 
             Számol();
-            // File.WriteAllText("output.txt", Számol().ToString());
         }
     }
 }
