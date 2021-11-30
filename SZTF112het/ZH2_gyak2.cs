@@ -1,25 +1,11 @@
-﻿using System;
-using System.IO;
-
+﻿using System.IO;
 
 namespace ZH2gyak
 {
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            FileHandler.srcPath = "MONITORING.DAT";
-            FileHandler.dstPath = "ANALYSIS.RESULT";
-            Analyzer analyzer = new Analyzer();
-            analyzer.Analysis();
-        }
-    }
-
     static class FileHandler
     {
         public static string srcPath { get; set; }
         public static string dstPath { get; set; }
-
         public static string[] Load()
         {
             StreamReader sr = new StreamReader(srcPath);
@@ -61,7 +47,6 @@ namespace ZH2gyak
                 phones[i] = new Phone(d[0], d[1], d[2].Split(';'));
             }
         }
-
         public void Analysis()
         {
             for (int i = 0; i < phones.Length; i++)
@@ -71,7 +56,6 @@ namespace ZH2gyak
                 else FileHandler.Append(phones[i].ToString());
             }
         }
-
         bool OSCause(Phone phone)
         {
             for (int i = 0; i < phone.BatteryLevels.Length - 1; i++)
@@ -120,9 +104,20 @@ namespace ZH2gyak
             FC = FaultCause.OK;
         }
 
-        public string ToString()
+        public override string ToString()
         {
             return ID + ":" + FC;
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            FileHandler.srcPath = "MONITORING.DAT";
+            FileHandler.dstPath = "ANALYSIS.RESULT";
+            Analyzer analyzer = new Analyzer();
+            analyzer.Analysis();
         }
     }
 }
