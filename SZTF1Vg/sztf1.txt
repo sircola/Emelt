@@ -1,0 +1,491 @@
+
+Bement: x - T tömb, n - egész (méret), ahol T összehasnolítható
+Kiement: x - T rendezett tömb
+függvény EgyszerûCserésRendezés(címszerint x,n)
+    ciklus i <- 1-tõl (n-1)-ig
+        ciklus j <- (i+1)-tõl n-ig
+            ha x[i] > x[j] akkor
+                x[i] <-> x[j]
+            elágazás vége
+        ciklus vége
+    ciklus vége
+függvény vége
+
+T(n)=O(n^2)
+
+--
+
+Bement: x - T tömb, n - egész (méret), ahol T összehasonlítható
+Kimenet: x - T rendezett tömb
+eljárás MinimumkiválasztásosRendezés(címszerint x,n)
+    ciklus i <- 1-tõl (n-1)-ig
+        min <- i
+        ciklus j <- (i+1)-tõl n-ig
+            ha x[min] > x[j] akkor
+                min <- j
+            elágazás vége
+        ciklus vége
+        x[i] <-> x[min]
+    ciklus vége
+eljárás vége
+
+--
+
+Bemenet: x - T tömb, n - egész (méret), ahol T összehasonlítható
+Kimenet: x - T rendezett tömb
+függvény BuborékRendezés(címszerint x, n)
+    ciklus i <- n-tõl 2-ig
+        cilkus j <- 1-tõl (i-1)-ig
+            ha x[j] > x[j+1] akkor
+                x[j] <-> x[j+1]
+            elágazás vége
+        ciklus vége
+    ciklus vége
+függvény vége
+
+T(n)=O(n^2)
+
+--
+
+Bemenet: x - T tömb, n - egész (méret), ahol T összehasonlítható
+Kiement: x - T rendezett tömb
+függvény JavítottBuborékrendezés(címszerint x,n)
+    i <- n
+    ciklus amíg i >= 2
+        idx <- 0
+        ciklus j <- 1-tõl (i-1)-ig
+            ha x[j] > x[j+1] akkor
+                x[j] <-> x[j+1]
+                idx <- j
+            elágazás vége
+        ciklus vége
+        i <- idx
+    ciklus vége
+függvény vége
+
+T(n)=O(n^2)
+
+--
+
+Bemenet: x - T tömb, n - egész (méret), ahol T összehasonlítható
+Kiement: x - T rendezett tömb
+eljárás BeillesztésesRendezés(címszerint x,n)
+    ciklus i <- 2-tõl n-ig
+        j <- i - 1
+        ciklus amíg (j>0) ^ (x[j] > x[j+1])
+            x[j] <-> x[j+1]
+            j <- j - 1
+        ciklus vége
+    ciklus vége
+eljárás vége
+
+T(n)=O(n^2)
+
+--
+
+Bemenet: x - T tömb, n - egész (méret), ahol T összehasonlítható
+Kiemenet: x - T rendezett tömb
+eljárás JavítottBeilleszétesRendezés(címszerint x,n)
+    ciklus i <- 2-tõl n-ig
+        j <- i - 1
+        segéd <- x[i]
+        ciklus amíg (j>0) ^ (x[j] > segéd)
+            x[j+1] <- x[j]
+            j <- j - 1
+        ciklus vége
+        x[j+1] <- segéd
+    ciklus vége
+eljárás vége
+
+T(n)=O(n^2)
+
+--
+
+Bement: x - T rendezett tömb, n - egész, érték - T, ahol T összehasonlítható 
+Kiement: van - logikai, idx - egész
+függvény LogaritmikusKeresés(x,n,érték)
+    bal <- 1
+    jobb <- n 
+    center <- [(bal+jobb)/2]    // egész rész
+    cilkus amíg (bal <= jobb) ^ (x[center] != érték)
+        ha x[center] > érték akkor
+            jobb <- center - 1
+        különben
+            bal <- center + 1
+        elágazás vége
+        center <- [(bal+jobb)/2]  // egész rész
+    ciklus vége
+    van <- (bal <= jobb)
+    ha van akkor
+        idx <- center
+        vissza (van,idx)
+    különben
+        vissza van
+    elágazás vége
+függvény vége
+
+T(n)=O(n.log(n))
+
+--
+
+Bemenet: x - T rendezett tömb, bal - egész, jobb - egész, érték - T, ahol T összehasonlítható
+Kiement: idx - értek (0 ha nincs)
+függvény LogaritmikusKEresésRekurziv(x,bal,jobb, érték)
+    ha bal > jobb akkor
+        vissza 0
+    különben
+        center <- [(bal+jobb)/2]    // egész rész
+        ha x[center] = érték
+            vissza center
+        különben
+            ha x[center] > érték akkor
+                vissza LogaritmikusKEresésRekurziv(x,bal,ceneter-1,érétk)
+            különben
+                vissza LogaritmikusKEresésRekurziv(x,ceneter+1,jobb,érték)
+            elágazás vége
+        elágazás vége
+    elágazás vége
+függvény vége
+
+--
+
+Halmaz: ismétlõdés nélküli, rendezett tömb
+
+Bemenet: a - T tömb, m - egész (méret), b - T Tömb, n - egész (méret)
+Kimenet: I - logikai
+függvény RészhalmazE(a,m,b,n)       // a részhalmaza-e b-nek?
+    i <- 1
+    j <- 1
+    ciklus amíg (i <= m) ^ (j <= n) ^ (a[i] >= b[j])
+        ha a[i] = n[j] akkor
+            i <- i + 1
+        elágazás vége
+        j <- j + 1
+    ciklus vége
+    I <- (i>m)
+    vissza I
+függvény vége
+
+T(n)=O(n)
+
+--
+
+Bemenet: a1 - T halmaz, n1 - egész (méret), a2 - T halmaz, n2 - egész (méret)
+Kiement: b - T halmaz, db - egész
+függvény HalmazMetszet()
+    b <- Létrehoz(T)[min(n1,n2)]
+    i <- 1
+    j <- 1
+    db <- 0
+    ciklus amíg (i<=n1) ^ (j<=n2)
+        ha a1[i] < a2[j] akkor
+            i <- i + 1
+        különben ha a1[i] > a2[j] akkor
+            j <- j + 1
+        különben
+            db <- db + 1
+            b[db] <- a1[i]
+            i <- i + 1
+            j <- j + 1
+        elágazás vége
+    ciklus vége
+    vissza (b,db)
+függvény vége
+
+--
+
+Bement: a1 - T halmaz, n1 - egész (méret), a2 - T halmaz, n2 - egész (méret)
+Kimenet: b - T halmaz, db - egész
+függvény HalmazKülönbség(a1,n1,a2,n2)
+    b <- Lértehoz(T)[n1]
+    i <- 1
+    j <- 1
+    db <- 0
+    ciklus amíg (i <= n1) ^ (j <= n2)
+        ha a1[i] < a2[j] akkor
+            db <- db + 1
+            b[db] <- a1[i]
+            i <- i + 1
+        különben ha a1[i] > a2[j] akkor
+            j <- j + 1
+        különben
+            i <- i + 1
+            j <- j + 1
+        elágazás vége
+    ciklus vége
+    ciklus amíg i <= n1
+        db <- db + 1
+        b[db] <- a1[i]
+        i <- i + 1
+    cilkus vége
+    vissza (b,db)
+függvény vége
+
+--
+
+11.18
+
+Bemenet: x - T tömb, bal - egész, jobb - egész, ahol T összehasonlítható
+Kimenet: x - T rendezett tömb
+eljárás ÖsszefésülõRendezés(címszerint x,bal,jobb)
+    ha bal < jobb  
+        center <- [(bal+jobb)/2]    // egész rész
+        ÖsszefésülõRendezés(x,bal,center)
+        ÖsszefésülõRendezés(x,center+1,jobb)
+        Összefésül(x,bal,center,jobb)   
+    elágazás vége
+eljárás vége
+
+
+Bemenet: x - T tömb, bal - egész, center - egész jobb - egész, ahol T összehasonlítható
+Kimenet: x - T tömb
+eljárás Összefésül(címszerint x,bal,center,jobb)   // Összefuttatás
+    n1 <- center - bal
+    n2 <- jobb - center
+    y1 <- Létrehoz(T)[n1+1]
+    ciklus i <- 1-tõl n1-ig
+        y1[i] <- x[bal+i-1]
+    ciklus vége
+    y2 <- Létrhoz(T)[n2+1]
+    ciklus j <- 1-tõl n2-ig
+        y2[j] <- x[center+j]
+    ciklus vége
+    y1[n1+1] <- +végtelen        // strázsaelem
+    y2[n2+1] <- +végtelen
+    i <- 1
+    j <- 1
+    ciklus k <- bal-tól jobb-ig
+        ha y1[i] < y2[j] akkor
+            x[k] <- y1[i]
+            i <- i + 1
+        különben
+            x[k] <- y2[j]
+            j <- j + 1
+        elágazás vége
+    ciklus vége
+eljárás vége
+
+T(n)=O(n.log(n)) 
+
+--
+
+Bemenet: x - T tömb, bal - egész, jobb - egész, ahol T összehasonlítható 
+Kimenet: x - T rendezett tömb
+eljárás GyorsRendezés(címszerint x,bal,jobb)
+    idx <- Szétválogat(x,bal,jobb)
+    ha idx > bal + 1 akkor
+        GyorsRendezés(x,bal,idx-1)
+    elágazás vége
+    ha idx < jobb - 1 akkor
+        GyorsRendezés(x,idx+1,jobb)
+    elágazás vége     
+eljárás vége
+
+Bemenet: x - T tömb, bal - egész, jobb - egész, ahol T összehasonlítható
+Kiement: x - T tömb, idx - egész
+függvény Szétválogat(címszerint x,bal,jobb)
+    segéd <- x[bal]         // támpontelem / pivot elem
+    ciklus amíg bal < jobb
+        ciklus amíg (bal<jobb) ^ (x[jobb]>segéd)
+            jobb <- jobb - 1
+        ciklus vége
+        ha bal<jobb akkor
+            x[bal] <- x[jobb]
+            bal <- bal + 1
+            ciklus amig (bal<jobb) ^ (x[bal]<=segéd)
+                bal <- bal + 1
+            ciklus vége
+            ha bal<jobb akkor
+                x[jobb] <- x[bal]
+                jobb <- jobb - 1
+            elégázás vége
+        elégázas vége
+    ciklus vége
+    idx <- bal
+    x[idx] <- segéd
+    vissza idx
+függvény vége
+
+T(n)=O(n.log(n))
+
+--
+
+Bemenet: x - T tömb, bal - egész, jobb - egész, k - egész, ahol T összehasonlítható
+Kiement: k-adik legkisebb tömbelem értéke
+függvény K-adikLegkisebbElem(x,bal,jobb,k)
+    ha bal = jobb akkor
+        vissza x[bal]
+    különben
+        idx <- Szétválogat(x,bal,jobb)
+        ha k = idx - bal + 1 akkor
+            vissza x[idx]
+        különben ha k < idx - bal + 1 akkor
+            vissza K-adikLegkisebbElem(x,bal,idx-1,k)
+        különben
+            vissza K-adikLegkisebbElem(x,idx+1,jobb,k-(idx-bal+1))
+        elégázas vége
+    elágazás vége
+függvény vége
+
+T(n)=O(n)
+
+--
+
+Bemenet: p - egész tömb, w - egész tömb, n - egész (tömb mérete), c - egész
+Kimenet: S - egész halmaz
+függvény Mohó0-1Hátizsák(p,w,n,c)
+    S <- 0
+    i <- 1
+    ciklus amíg (c>0) ^ (i<=n)
+        ha w[i] <= c
+            S <- S U {i}
+            c <- c - w[i]
+        elágazás vége
+        i <- i + 1
+    ciklus vége
+    vissza S
+függvény vége
+
+T(n) = O(n)
+
+--
+
+Bement: C - egész tömb, m - egész (C sorainak száma), n - egész (C oszlopainak száma)
+Kiement: P - egész tömb
+függvény MohóKincsGyûjtés(C,m,n)
+    P <- Létrehoz(egész)[m+n+1]
+    i <- 1
+    j <- 1
+    k <- 0
+    cilkus amig (i<m) ^ (j<n)
+        k <- k + 1
+        P[k] <- (i,j)
+        ha C[i+1,j] > C[i,j+1] akkor
+            i <- i + 1
+        különben
+            j <- j + 1
+        elágazás vége
+    ciklus vége
+    cilkus amig i < m
+        k <- k + 1
+        P[k] <- (i,j)
+        i <- i + 1
+    ciklus vége
+    cilkus amíg j < n
+        k <- k + 1
+        p[k] <- (i,j)
+        j <- j + 1
+    ciklus vége
+    k <- k + 1
+    P[k] <- (i,j)
+    vissza P
+függvény vége
+
+T(n) = O(n.m)
+
+--
+Dinamikus programozás:
+
+Bemenet: C - egész tömb, m - egész (C sorainak száma), n - egész (C oszlopainak száma)
+Kimenet: F - egész tömb
+függvény KincsÖsszeg(C,m,n)
+    F <- Létrehoz(egész)[m,n]
+    F[1,1] <- C[1,1]
+    ciklus j <- 2-tõl n-ig
+        F[1,j] <- F[1,j-1] + C[1,j]
+    ciklus vége
+    ciklus i <- 2-tõl m-ig
+        F[i,1] <- F[i-1,1] + C[i,1]
+    ciklus vége
+    ciklus i <- 2-tõl m-ig
+        ciklus j <- 2-tõl n-ig
+            F[i,j] <- max( F[i-1,j], F[i,j-1] ) + C[i,j]
+        ciklus vége
+    ciklus vége
+    vissza F
+függvény vége
+
+T(n)=O(m.n)
+
+Bemenet: F - egész tömb, m - egész (F sorainak száma), n - egész (F oszlopainak száma)  
+Kiement: P - egész tömb
+függvény BejárásiÚtKiolvas(F,m,n)
+    P <- Létrhoz(egész)[m,n+1]
+    i <- m
+    j <- n
+    k <- m + n - 1
+    ciklus amíg (i>=2) ^ (j>=2)
+        P[k] <- (i,j)
+        k <- k - 1
+        ha F[i-1,j] > F[i,j-1] akkor
+            i <- i - 1
+        különben
+            j <- j - 1
+        elágazás vége
+    ciklus vége
+    ciklus amíg i>=2
+        P[k] <- (i,j)
+        k <- k - 1
+        i <- i - 1
+    ciklus vége
+    ciklus amíg j>=2
+        P[k] <- (i,j)
+        k <- k - 1
+        j <- j - 1
+    ciklus vége
+    P[k] <- (1,1)
+    vissza P
+függvény vége
+
+--
+
+Bemenet: X - T tömb, n - egész (méret), Y - T tömb, m - egész (méret)
+Kimenet: F - egész tábla
+függvény LeghosszabbKözösRészsorozatHossza(X,n,Y,m)
+    F <- TáblaLétrehoz(egész)[n+1,m+1]
+    ciklus j <- 0-tól m-ig
+        F[0,j] <- 0
+    cilkus vége
+    cilkus i <- 1-tõl n-ig
+        F[i,0] <- 0
+    cilkus vége
+    ciklus i <- 1-tõl n-ig
+        cilkus j <- 1-tõl m-ig
+            ha X[i] = Y[j] akkor
+                F[i,j] <- F[i-1,j-1] + 1
+            különben        
+                F[i,j] <- max{ F[i-1,j], F[i,j-1] }
+            elágazás vége
+        ciklus vége
+    ciklus vége
+    vissza F
+függvény vége
+
+
+Bemenet: F - egész tábla, X - T tömb, n - egész (méret), Y - T tömb, m - egész (méret)
+Kimenet: S - T tömb
+függvény LeghosszabbKözösRészsorozatElõállítás(F,X,n,Y,m)
+    S <- Létrehoz(T)[F[n,m]]
+    i <- n
+    j <- m
+    idx <- F[n,m]
+    cilkus amíg idx > 0
+        ha X[i] = Y[j] akkor
+            S[idx] <- X[i]
+            idx <- idx - 1
+            i <- i - 1
+            j <- j - 1
+        különben ha F[i-1,j] > F[i,j-1] akkor
+            i <- i - 1
+        különben
+            j <- j - 1
+        elágazás vége
+    ciklus vége
+    vissza S
+függvény vége
+
+T(n) = O(n.m)
+
+--
+
+
