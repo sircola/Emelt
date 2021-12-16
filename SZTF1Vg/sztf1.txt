@@ -157,7 +157,7 @@ függvény RészhalmazE(a,m,b,n)       // a részhalmaza-e b-nek?
     i <- 1
     j <- 1
     ciklus amíg (i <= m) ^ (j <= n) ^ (a[i] >= b[j])
-        ha a[i] = n[j] akkor
+        ha a[i] = b[j] akkor
             i <- i + 1
         elágazás vége
         j <- j + 1
@@ -353,7 +353,7 @@ T(n) = O(n)
 Bement: C - egész tömb, m - egész (C sorainak száma), n - egész (C oszlopainak száma)
 Kiement: P - egész tömb
 függvény MohóKincsGyûjtés(C,m,n)
-    P <- Létrehoz(egész)[m+n+1]
+    P <- Létrehoz(egész)[m+n-1]
     i <- 1
     j <- 1
     k <- 0
