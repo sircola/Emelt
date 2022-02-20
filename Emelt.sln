@@ -73,6 +73,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SZTF1Vg", "SZTF1Vg\SZTF1Vg.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SZTF21het", "SZTF21het\SZTF21het.csproj", "{1D7621E7-3E18-4287-A5B5-01B4602FC15E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SZTF22het", "SZTF22het\SZTF22het.csproj", "{BBA6ED7E-EC76-4F35-9BF5-8E754972FC12}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -219,6 +221,10 @@ Global
 		{1D7621E7-3E18-4287-A5B5-01B4602FC15E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D7621E7-3E18-4287-A5B5-01B4602FC15E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1D7621E7-3E18-4287-A5B5-01B4602FC15E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBA6ED7E-EC76-4F35-9BF5-8E754972FC12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBA6ED7E-EC76-4F35-9BF5-8E754972FC12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBA6ED7E-EC76-4F35-9BF5-8E754972FC12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBA6ED7E-EC76-4F35-9BF5-8E754972FC12}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
