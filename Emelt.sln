@@ -87,6 +87,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SZTF26het", "SZTF26het\SZTF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SZTF27het", "SZTF27het\SZTF27het.csproj", "{A8D5E333-203F-4B7F-A1D7-1D14A357E104}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SZTF28het", "SZTF28het\SZTF28het.csproj", "{85ED11B0-A3A5-479F-8A5E-021E2B9CA360}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -261,6 +263,10 @@ Global
 		{A8D5E333-203F-4B7F-A1D7-1D14A357E104}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8D5E333-203F-4B7F-A1D7-1D14A357E104}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8D5E333-203F-4B7F-A1D7-1D14A357E104}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85ED11B0-A3A5-479F-8A5E-021E2B9CA360}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85ED11B0-A3A5-479F-8A5E-021E2B9CA360}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85ED11B0-A3A5-479F-8A5E-021E2B9CA360}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85ED11B0-A3A5-479F-8A5E-021E2B9CA360}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
