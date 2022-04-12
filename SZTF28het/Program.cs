@@ -75,7 +75,7 @@ namespace SZTF28het
             {
                 char c = expression[i];
 
-                if( c >= '0' && c < '9') 
+                if( c >= '0' && c <= '9') 
                     verem.Push( new OperandNode(c) );
                 else
                 if( Enum.IsDefined(typeof(Operator),(int)c) )
