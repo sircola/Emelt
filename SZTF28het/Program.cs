@@ -11,7 +11,7 @@ namespace SZTF28het
             Sub = (int)'-',
             Mul = (int)'*',
             Div = (int)'/',
-            Pov = (int)'^'
+            Pow = (int)'^'
         }
 
         abstract class Node
@@ -171,7 +171,7 @@ namespace SZTF28het
                     case Operator.Div:
                         res = l / r;
                         break;
-                    case Operator.Pov:
+                    case Operator.Pow:
                         res = Math.Pow(l, r);
                         break;
                 }
