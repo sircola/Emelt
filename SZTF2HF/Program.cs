@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace SZTF2HF
 {
@@ -176,6 +177,8 @@ namespace SZTF2HF
         Írásbeli
     }
 
+    delegate void IdőpontVáltozásHandler();
+
     interface IKurzus : IComparable
     {
         string Kód { get;  }
@@ -185,6 +188,7 @@ namespace SZTF2HF
         DateTime ÓraVég { get; set; }
         bool Ütközik(List<IKurzus> l);
         Tantárgy Tantárgy { get; set; }
+        event IdőpontVáltozásHandler IdőpontVáltozás;
     }
 
     abstract class Tantárgy
@@ -209,24 +213,38 @@ namespace SZTF2HF
     {
         public string Kód { get; set; }
         public KurzusKategória Típus { get; } = KurzusKategória.Offline;
-        public DateTime ÓraKezdet { get; set; }
-        public DateTime ÓraVég { get; set; }
+        private DateTime _ÓraKezdet;
+        public DateTime ÓraKezdet { 
+            get { return _ÓraKezdet; } 
+            set {
+                _ÓraKezdet = value;
+                IdőpontVáltozás?.Invoke();
+            } }
+        private DateTime _ÓraVég;
+        public DateTime ÓraVég {
+            get { return _ÓraVég; }
+            set {
+                _ÓraVég = value;
+                IdőpontVáltozás?.Invoke();
+            } }
         public Tantárgy Tantárgy { get; set; }
         public DateTime Nap { get; set; }
+
+        public event IdőpontVáltozásHandler IdőpontVáltozás;
 
         public int CompareTo(object obj)
         {
             IKurzus másik = obj as IKurzus;
             if (másik.Nap.Day != Nap.Day)
                 return Nap.Day - másik.Nap.Day;
-            if (Nap.Hour < másik.Nap.Hour)
+            if (ÓraKezdet.Hour <= másik.ÓraKezdet.Hour)
             {
-                if (Nap.Hour + Nap.Minute <= másik.Nap.Hour)
+                if (ÓraVég.Hour * 60 + ÓraVég.Minute <= másik.ÓraKezdet.Hour * 60 + másik.ÓraKezdet.Minute)
                     return 1;
                 else
                     return 0;
             }
-            if (másik.Nap.Hour + másik.Nap.Minute <= Nap.Hour)
+            if (másik.ÓraVég.Hour * 60 + másik.ÓraVég.Minute <= ÓraKezdet.Hour * 60 + ÓraKezdet.Minute )
                 return -1;
             return 0;
         }
@@ -250,24 +268,40 @@ namespace SZTF2HF
         public VizsgaTípus vizsgatípus { get; set; }
         public string Kód { get; set; }
         public KurzusKategória Típus { get; }
-        public DateTime ÓraKezdet { get; set; }
-        public DateTime ÓraVég { get; set; }
+        private DateTime _ÓraKezdet;
+        public DateTime ÓraKezdet {
+            get { return _ÓraKezdet; }
+            set {
+                _ÓraKezdet = value;
+                IdőpontVáltozás?.Invoke();
+            }
+        }
+        private DateTime _ÓraVég;
+        public DateTime ÓraVég {
+            get { return _ÓraVég; }
+            set {
+                _ÓraVég = value;
+                IdőpontVáltozás?.Invoke();
+            }
+        }
         public Tantárgy Tantárgy { get; set; }
         public DateTime Nap { get; set; }
+
+        public event IdőpontVáltozásHandler IdőpontVáltozás;
 
         public int CompareTo(object obj)
         {
             IKurzus másik = obj as IKurzus;
             if (másik.Nap.Day != Nap.Day)
                 return Nap.Day - másik.Nap.Day;
-            if (Nap.Hour < másik.Nap.Hour)
+            if (ÓraKezdet.Hour <= másik.ÓraKezdet.Hour)
             {
-                if (Nap.Hour + Nap.Minute <= másik.Nap.Hour)
+                if (ÓraVég.Hour * 60 + ÓraVég.Minute <= másik.ÓraKezdet.Hour * 60 + másik.ÓraKezdet.Minute)
                     return 1;
                 else
                     return 0;
             }
-            if (másik.Nap.Hour + másik.Nap.Minute <= Nap.Hour)
+            if (másik.ÓraVég.Hour * 60 + másik.ÓraVég.Minute <= ÓraKezdet.Hour * 60 + ÓraKezdet.Minute)
                 return -1;
             return 0;
         }
@@ -290,6 +324,8 @@ namespace SZTF2HF
         public DateTime ÓraVég { get; set; }
         public Tantárgy Tantárgy { get; set; }
         public DateTime Nap { get; set; }
+
+        public event IdőpontVáltozásHandler IdőpontVáltozás;
 
         public int CompareTo(object obj)
         {
@@ -415,58 +451,51 @@ namespace SZTF2HF
     }
 
 
-    abstract class Backtrack
-    {
-        protected int N { get; set; }
-        protected int[] M;
-        protected object[,] R;
-
-        public abstract bool Ft(int szint, object o);
-        public abstract bool Fk(int szint, object o, object[] E);
-
-        public object[] Kereses()
-        {
-            bool van = false;
-            object[] E = new object[N];
-
-            Probal(0, ref van, E);
-
-            if (van == false)
-                throw new ArgumentException("Nincs megoldás.");
-
-            return E;
-        }
-
-        public void Probal(int szint, ref bool van, object[] E)
-        {
-            int i = -1;
-
-            while (!van && i < M[szint] - 1)
-            {
-                ++i;
-                if (Ft(szint, R[szint, i]))
-                {
-                    if (Fk(szint, R[szint, i], E))
-                    {
-                        E[szint] = R[szint, i];
-                        if (szint == N - 1)
-                        {
-                            van = true;
-                        }
-                        else
-                        {
-                            Probal(szint + 1, ref van, E);
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-
-    class Órarend : Backtrack
+    class Órarend
     {
         LáncoltLista<IKurzus> kurzusok = new LáncoltLista<IKurzus>();
+        List<List<IKurzus>> R;
+        List<List<IKurzus>> E;
+
+        public Órarend()
+        {
+            R = new List<List<IKurzus>>();
+            R.Add(new List<IKurzus>()); // hétfő
+            R.Add(new List<IKurzus>());
+            R.Add(new List<IKurzus>());
+            R.Add(new List<IKurzus>());
+            R.Add(new List<IKurzus>());
+
+            E = new List<List<IKurzus>>();
+            E.Add(new List<IKurzus>()); // hétfő
+            E.Add(new List<IKurzus>());
+            E.Add(new List<IKurzus>());
+            E.Add(new List<IKurzus>());
+            E.Add(new List<IKurzus>());
+        }
+
+        void Újratervez()
+        {
+            E = new List<List<IKurzus>>();
+            E.Add(new List<IKurzus>()); // hétfő
+            E.Add(new List<IKurzus>());
+            E.Add(new List<IKurzus>());
+            E.Add(new List<IKurzus>());
+            E.Add(new List<IKurzus>());
+
+            ÓrarendKészítés();
+        }
+
+        void RBeszúr( IKurzus k )
+        {
+            k.IdőpontVáltozás += Újratervez;
+
+            if (k is VizsgaKurzus)
+                return;
+
+            R[k.Nap.Day - 1].Add(k);
+        }
+
 
         public void AzonosKurzusEllenőrzés(IKurzus beszúrandó )
         {
@@ -491,6 +520,7 @@ namespace SZTF2HF
             while (t.kurzusok[i] != null)
             {
                 AzonosKurzusEllenőrzés( t.kurzusok[i] );
+                RBeszúr(t.kurzusok[i]);
                 kurzusok.Beszúr(t.kurzusok[i++]);
             }
         }
@@ -498,6 +528,7 @@ namespace SZTF2HF
         public void KurzusHozzáadás( IKurzus k )
         {
             AzonosKurzusEllenőrzés( k);
+            RBeszúr(k);
             kurzusok.Beszúr(k);
         }
 
@@ -566,16 +597,106 @@ namespace SZTF2HF
             }
         }
 
-        public override bool Fk(int szint, object o, object[] E)
+        public bool Fk(int szint, object o)
+        {
+            if (o is Előadás)
+                return true;
+
+            if (o is VizsgaKurzus)
+                return false;
+
+            if( o is Gyakorlat )
+            {
+                Gyakorlat gy = o as Gyakorlat;
+
+                foreach (List<IKurzus> l in E)
+                {
+                    foreach (IKurzus elem in l)
+                    {
+                        if ( gy.Kód.Substring( 0, gy.Kód.Length - 2).CompareTo(elem.Kód.Substring(0, elem.Kód.Length - 2)) == 0)
+                            return false;
+                    }
+                }
+            }
+
+            if (o is Labor)
+            {
+                Labor gy = o as Labor;
+
+                foreach (List<IKurzus> l in E)
+                {
+                    foreach (IKurzus elem in l)
+                    {
+                        if (gy.Kód.Substring(0, gy.Kód.Length - 2).CompareTo(elem.Kód.Substring(0, elem.Kód.Length - 2)) == 0)
+                            return false;
+                    }
+                }
+            }
+
+            foreach (List<IKurzus> l in E)
+            {
+                foreach (IKurzus elem in l)
+                {
+                    return (o as IKurzus).CompareTo(elem) == 0 ? false : true;
+                }
+            }
+
+            return true;
+        }
+        public bool Ft(int szint, object o)
         {
             return true;
         }
 
-        public override bool Ft(int szint, object o)
+        private void Próbál(int szint, ref bool van)
         {
-            return true;
+            int i = -1;
+
+            while ( /*!van &&*/ i < R[szint].Count - 1)
+            {
+                ++i;
+                if (Ft(szint, R[szint][i]))
+                {
+                    if (Fk(szint, R[szint][i]))
+                    {
+                        E[szint].Add( R[szint][i] );
+                        if( i == R[szint].Count - 1 && szint == 4 )
+                            van = true;
+                        else 
+                        if( i == R[szint].Count - 1 )
+                            Próbál(szint + 1, ref van);
+                    }
+                }
+            }
         }
 
+        public void ÓrarendKészítés()
+        {
+            bool van = true;
+       
+            Próbál(0, ref van);
+
+            if (van == false)
+                throw new ArgumentException("Nincs yo órarend!");
+        }
+
+        public void ÓrarendKiírás()
+        {
+            StreamWriter sw = new StreamWriter("órarend.txt");
+            int i = 0;
+            foreach (List<IKurzus> l in E)
+            {
+                string[] hét = { "hétfő", "kedd", "szerda", "csütörtök", "péntek" };
+                Console.WriteLine($"{hét[i]} ({E[i].Count}):");
+                ++i;
+                foreach (IKurzus elem in l)
+                {
+                    Console.WriteLine($"{elem.Kód}: {hét[elem.Nap.Day - 1]} {elem.ÓraKezdet.Hour}:{elem.ÓraKezdet.Minute:00} - {elem.ÓraVég.Hour}:{elem.ÓraVég.Minute:00}");
+                    sw.WriteLine($"{elem.Kód}: {hét[elem.Nap.Day - 1]} {elem.ÓraKezdet.Hour}:{elem.ÓraKezdet.Minute:00} - {elem.ÓraVég.Hour}:{elem.ÓraVég.Minute:00}");
+                }
+            }
+            sw.Close();
+        }
     }
 
     class Program
@@ -591,6 +712,18 @@ namespace SZTF2HF
             // órarend.TörölKurzusKód("AN1_GY_02");
             // órarend.TörölKurzusHossz(120);
             órarend.KiírLista();
+
+            try
+            {
+                órarend.ÓrarendKészítés();
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            Console.WriteLine("\n\n\nÓrarend:");
+            órarend.ÓrarendKiírás();
 
             Console.ReadLine();
         }
