@@ -187,5 +187,397 @@ eljárás vége
 
 
 Láncoltlisták:
+bejárás: nem hagy ki elemet, csak egyszer érint egy elemet
+statikus: egy tömbbe van
+eljárás ListaBejárás(fej)
+    p <- fej
+    ciklus amíg p != 0
+        FELDOLGOZ(p.tart)
+        p <- p.köv
+    ciklus vége
+eljárás vége
+
+
+függvény ListábanKeresés(fej, F feltétel)
+    p <- fej
+    ciklus amíg (p != 0) ^ ¬F(p.tart)
+        p <- p.köv
+    ciklus vége
+    van <- (p != 0)
+    ha van akkor
+        vissza (van, p.tart)
+    különben
+        vissza van
+    elágazás vége
+függvény vége
+
+
+eljárás ListábaBeszúrásN(címszerint fej, érték, n)
+    új <- LÉTREHOZ(M)
+    új.tart <- érték
+    ha (fej = 0) v (n = 1) akkor
+        új.köv = fej 
+        fej = új
+    különben
+        p <- fej 
+        i <- 2
+        ciklus amíg (p.köv != 0) ^ (i < n)
+            p <- p.köv 
+            i <- i + 1
+        ciklus vége
+        új.köv <- p.köv
+        p.köv <- új
+    elágazás vége
+eljárás vége
+
+
+eljárás ListábólTörlés(címszerint fej, törlendő)
+    p <- fej 
+    e <- 0
+    ciklus amíg (p != 0) ˄ (p.tart != törlendő)
+        e <- p
+        p <- p.köv
+    ciklus vége
+    ha p != 0 akkor
+        ha e = 0 akkor
+            fej = p.köv
+        különben
+            e.köv = p.köv
+        elágazás vége
+        FELSZABADÍT(p)
+    különben
+        hiba „nincs ilyen elem”
+    elágazás vége
+eljárás vége
+
+
+eljárás ListaTeljesTörlése(címszerint fej)
+    ciklus amíg (fej != 0)
+        p <- fej
+        fej <- fej.köv
+        FELSZABADÍT(p)
+    ciklus vége
+eljárás vége
+
+
+függvény RendezettListábanKeresés(fej, kulcs)
+    p <- fej
+    ciklus amíg (p != 0) ^ (p.kulcs < kulcs)
+        p <- p.köv
+    ciklus vége
+    van <- (p != 0) ^ (p.kulcs = kulcs)
+    ha van akkor
+        vissza (van, p.tart)
+    különben
+        vissza van
+    elágazás vége
+függvény vége
+
+
+eljárás RendezettListábaBeszúrás(címszerint fej, kulcs, érték)
+    új <- LÉTREHOZ(M) 
+    új.kulcs <- kulcs 
+    új.tart <- érték
+    ha fej = 0 akkor
+        új.köv <- 0
+        fej <- új
+    különben
+        ha fej.kulcs > kulcs akkor
+            új.köv <- fej 
+            fej <- új
+        különben
+            p <- fej 
+            e <- 0
+            ciklus amíg (p != 0) ^ (p.kulcs < kulcs)
+                e <- p 
+                p <- p.köv
+            ciklus vége
+            ha p = 0 akkor
+                új.köv = 0 
+                e.köv = új
+            különben
+                új.köv = p 
+                e.köv = új
+            elágazás vége
+        elágazás vége
+    elágazás vége
+eljárás vége
+
+
+Bináris keresőfa/BST:
+Beszúrással fa visszaépítése:
+eljárás PreorderBejárás(p)
+    ha p != 0 akkor
+        FELDOLGOZ(p.tart)
+        PreorderBejárás(p.bal)
+        PreorderBejárás(p.jobb)
+    elágazás vége
+eljárás vége
+
+
+Sorrendbe:
+eljárás InorderBejárás(p)
+    ha p != 0 akkor
+        InorderBejárás(p.bal)
+        FELDOLGOZ(p.tart)
+        InorderBejárás(p.jobb)
+    elágazás vége
+eljárás vége
+
+
+Fa törlése, levelekkel kezd:
+eljárás PostorderBejárás(p)
+    ha p != 0 akkor
+        PostorderBejárás(p.bal)
+        PostorderBejárás(p.jobb)
+        FELDOLGOZ(p.tart)
+    elágazás vége
+eljárás vége
+
+
+függvény Keresés(p, kulcs)
+    ha p != 0 akkor
+        ha p.kulcs > kulcs akkor
+            vissza Keresés(p.bal, kulcs)
+        különben
+            ha p.kulcs < kulcs akkor
+                vissza Keresés(p.jobb, kulcs)
+            különben
+                vissza p.tart
+            elágazás vége
+        elágazás vége
+    különben
+        hiba „nincs ilyen kulcs”
+    elágazás vége
+függvény vége
+
+
+eljárás Beszúrás(címszerint p, kulcs, érték)
+    ha p = 0 akkor
+        p <- LÉTREHOZ(M)
+        p.kulcs <- kulcs 
+        p.tart <- érték
+        p.bal <- 0
+        p.jobb <- 0
+    különben
+        ha p.kulcs > kulcs akkor
+            Beszúrás(p.bal, kulcs, érték)
+        különben
+            ha p.kulcs < kulcs akkor
+                Beszúrás(p.jobb, kulcs, érték)
+            különben
+                hiba „már van ilyen kulcs”
+            elágazás vége
+        elágazás vége
+    elágazás vége
+eljárás vége
+
+
+eljárás Törlés(címszerint p, kulcs)
+    ha p != 0 akkor
+        ha p.kulcs > kulcs akkor
+            Törlés(p.bal, kulcs)
+        különben
+            ha p.kulcs < kulcs akkor
+                Törlés(p.jobb, kulcs)
+            különben
+                ha p.bal = 0 akkor
+                    q = p 
+                    p <- p.jobb 
+                    FELSZABADÍT(q)
+                különben
+                    ha p.jobb = 0 akkor
+                        q = p
+                        p <- p.bal
+                        FELSZABADÍT(q)
+                    különben
+                        TörlésKétGyerek(p, p.bal)
+                    elágazás vége
+                elágazás vége
+            elágazás vége
+        elágazás vége
+    különben
+        hiba „Nincs ilyen elem”
+    elágazás vége
+eljárás vége
+
+
+eljárás TörlésKétGyerek(e, címszerint r)
+    ha r.jobb != 0 akkor
+        TörlésKétGyerek(e, r.jobb)
+    különben
+        e.tart <- r.tart
+        e.kulcs <- r.kulcs
+        q <- r
+        r <- r.bal
+        FELSZABADÍT(q)
+    elágazás vége
+eljárás vége
+
+
+Gráfok:
+szomsédsági lista
+csúcsmátrix
+S = sor, FIFO
+eljárás SzélességiBejárás(start)
+    S <- start
+    F <- {start}
+    d[start] <- 0
+    Pi[start] <- 0
+    ciklus amíg S != 0
+        k <- S
+        Feldolgoz(k.tartalom)
+        ciklus minden x eleme k.Szomszédok
+            ha x nem eleme F akkor
+                S <- x
+                F <- F U {x}
+                d[x] <- d[k] + 1
+                Pi[x] <- k
+            elágazás vége
+        ciklus vége
+    ciklus vége
+eljárás vége
+
+
+eljárás MélységiBejárásRek(k, címszerint F)
+    F <- F U {k}
+    Feldolgoz(k.tartalom)
+    ciklus minden x elem k.Szomszédok
+        ha x nem eleme F akkor
+            MélységiBejárásRek(x, F)
+        elágazás vége
+    ciklus vége
+eljárás vége
+
+
+eljárás MélységiBejárás(start)
+    F <- 0
+    MélységiBejárásRek(start, F)
+eljárás vége
+
+
+Hasító táblázatok
+eljárás Beszúrás(címszerint A, h, kulcs, érték)
+    A[h(kulcs)].kulcs <- kulcs
+    A[h(kulcs)].tart <- érték
+eljárás vége
+
+
+függvény Keresés(A, h, kulcs)
+    ha A[h(kulcs)].kulcs != 0 akkor
+        vissza A[h(kulcs)].tart
+    különben
+        hiba „nincs ilyen kulcs”
+    elágazás vége
+eljárás vége
+
+
+eljárás Törlés(címszerint A, h, kulcs)
+    A[h(kulcs)].kulcs <- 0
+eljárás vége
+
+
+Túlcsordulásos táblával:
+eljárás Beszúrás(címszerint A, h, kulcs, érték)
+    i <- h(kulcs)
+    ha A[i].kulcs = 0 akkor
+        A[i].kulcs <- kulcs
+        A[i].tart <- érték
+    különben
+        TúlcsodulásiTerületBeszúr(kulcs,érték)
+    elágazás vége
+eljárás vége
+
+
+függvény Keresés(A, h, kulcs)
+    i <- h(kulcs)
+    ha A[i].kulcs = kulcs akkor
+        vissza A[i].tartalom
+    különben
+        ha TúlcsodulásiTerületKeres(kulcs) akkor
+            elem <- TúlcsodulásiTerületOlvas(kulcs)
+            vissza elem
+        különben
+            hiba ”Nincs ilyen kulcs”
+        elágazás vége
+    elágazás vége
+függvény vége
+
+
+eljárás Törlés(címsz. A, h, kulcs)
+    i <- h(kulcs)
+    ha A[i].kulcs = kulcs akkor
+        A[i].kulcs <- 0
+    különben
+        ha TúlcsodulásiTerületKeres(kulcs) akkor
+            TúlcsodulásiTerületTöröl(kulcs)
+        elágazás vége
+    elágazás vége
+eljárás vége
+
+
+függvény Dijkstra(G, start)
+    ciklus minden x eleme G.Csúcsok
+        d[x] <- végtelen
+        Pi[x] <- 0
+        S <= x
+    ciklus vége
+    d[start] <- 0
+    ciklus amíg S != 0
+        u <- S.MinKivesz(d)
+        ciklus minden x eleme u.Szomszédok
+            ha d[u] + u.Súly(x) < d[x] akkor
+                d[x] <- d[u] + u.Súly(x)
+                Pi[x] <- u
+            elágazás vége
+        ciklus vége
+    ciklus vége
+    vissza (Pi, d)
+függvény vége
+
+
+Feszítőfa keresés élek vágásával:
+függvény Prim(G, start)
+    ciklus minden x eleme G.Csúcsok
+        k[x] <- végtelen 
+        Pi[x] <- 0
+        S <= x
+    ciklus vége
+    k[start] <- 0
+    ciklus amíg S != 0
+        u <- S.MinKivesz(k)
+        ciklus minden x eleme u.Szomszédok
+            ha x eleme S ^ u.Súly(x) < k[x] akkor
+                k[x] <- u.Súly(x)
+                Pi[x] <- u
+            elágazás vége
+        ciklus vége
+    ciklus vége
+    vissza Pi
+függvény vége
+
+Halmaz összevonással:
+függvény Kruskal(G)
+    ciklus minden x eleme G.Csúcsok
+        Halmaz-létrehozás(x)
+    ciklus vége
+    ciklus minden (u,v) eleme G.Élek
+        S <= (u,v)
+    ciklus vége
+    ciklus amíg S != 0
+        (u,v) <- S.MinKivesz(súly)
+        ha Tartalmazó-halmaz(u) != Tartalmazó-halmaz(v) akkor
+            A <- A U {(u,v)}
+            Halmaz-összevonás(Tartalmazó-halmaz(u), Tartalmazó-halmaz(v))
+        elágazás vége
+    ciklus vége
+    vissza A
+függvény vége
+
+
+B-fa:
+
+Paradigmák:
+
 
 
