@@ -1,0 +1,388 @@
+Statikus rtg:
+en 
+conf t
+ip route 192.168.10.128 255.255.255.192  10.10.10.2 
+          [hálózat címe]  [netmaszk]     [a másik router portjának a címe]
+ip route 192.168.10.192 255.255.255.224 s0/1/0
+                                         [saját port amire küldeni kell]
+end
+wr
+
+ripv2 rtg:
+en
+conf t
+route rip
+version 2
+network 10.10.10.0 [hálózat címe]
+network 10.10.10.8
+network 192.168.10.0
+end
+wr
+
+ospf rtg:
+en
+conf t
+router ospf 10
+network 192.168.10.0 0.0.0.127 area 0
+                     [inverz maszk]
+network 10.10.10.0 0.0.0.3 area 0
+network 10.10.10.8 0.0.0.3 area 0
+// passive-interface GigabitEthernet0/1.23
+// no passive-interface GigabitEthernet0/1.23
+end
+wr
+// show ip route ospf
+
+ip nat inside source static 172.30.40.2 185.65.4.4
+access-list 1 permit any
+ip nat inside soruce list 1 interface Serial0/0/0
+interface s0/0/0
+ip nat outside
+interface s0/0/1
+ip nat inside 
+interface g0/1
+ip nat inside
+
+ipv6 unicast-routing
+interface s0/0/0
+ipv6 address 3323::2:/64
+interface g0/1
+ipv6 address 2001:DB8:ACAD:40::1/64
+ipv6 address FF80::1 link-local
+ipv6 route ::/0 3323::1
+
+
+LAN1 60 cím -> 64
+N: 192.168.10.0
+F: 192.168.10.1
+L: 192.168.10.62
+B: 192.168.10.63
+S: 192.168.10.192
+
+LAN2 30 cím -> 32
+N: 192.168.10.64
+F: 192.168.10.65
+L: 192.168.10.94
+B: 192.168.10.95
+S: 192.168.10.224
+
+LAN3 10 cím -> 16
+NETWORK:   192.168.10.96
+FIRST:     192.168.10.97
+LAST:      192.168.10.110
+BROADCAST: 192.168.10.111
+SUBNET:    192.168.10.240
+
+az első cím router, második switch
+[lan3]
+en
+conf t
+hostname S1
+enable secret class123
+line console 0
+password cisco123
+login
+line vty 0 15
+password cisco123
+login banner motd "warning!"
+service password-encryption 
+interface vlan 1
+ip address 192.168.10.98 255.255.255.240
+no shutdown
+ip default-gateway 192.168.10.97
+end
+wr
+
+
+[router]
+en
+conf t
+hostname R1
+enable secret class123
+line console 0
+exec-timeout 5 0
+password cisco123
+login
+line vty 0 15
+exec-timeout 5 0
+transport input ssh
+password cisco123
+login local
+banner motd "warning!"
+service password-encryption 
+interface fa0/0
+ip address 192.168.10.97 255.255.255.240
+no shutdown
+interface fa0/1
+ip address 192.168.10.1 255.255.255.192
+no shutdown
+interface s0/0/0
+ip address 192.168.10.121 255.255.255.252
+no shutdown
+security passwords min-length 10
+login block-for 180 attempts 3 within 60
+ip domain-name bot.local
+usewrname admin password adminspass1
+crypto key generate rsa
+1024
+ip ssh version 2
+ip route 0.0.0.0 0.0.0.0 s0/0/0
+ip default-information originate
+end
+wr
+
+[PC3]
+ip: 192.168.10.110
+maszk: 192.168.10.240 
+gateway: 192.168.10.97
+
+
+
+IT: 172.16.10.0/24
+manager: 172.16.20.0/24
+
+[switch]2
+en
+conf t
+hostname S2
+vlan 10
+name IT
+exit
+vlan 20
+name Manager
+exit
+interface fa0/1
+switchport mode access
+switchport access vlan 10
+exit
+interface g0/2
+switchport mode trunk
+// switchport trunk native vlan 1
+// switchport trunk allowed vlan 10,20
+exit
+end
+wr
+
+router-on-the-stick:
+a routerbe csak egy vezeték megy
+en
+conf t
+interface FastEthernet0/0.10
+encapsulation dot1q 10
+ip address 172.16.10.1 255.255.255.0
+exit
+interface FastEthernet0/0.20
+encapsulation dot1q 20
+ip address 172.16.20.1 255.255.255.0
+exit
+interface FastEthernet0/0
+no shutdown
+exit
+end
+wr
+
+ip dhcp pool PC_VLAN
+network 192.168.13.0 255.255.255.192
+default-router 192.168.13.1
+dns-server 23.36.14.254
+ip dhcp excluded-address 192.168.13.1
+
+
+Router0:
+en
+conf t
+hostname R1
+int fa0/0
+ip add 192.168.10.1 255.255.255.192
+no sh
+exit
+[no] ip dhcp excluded-address 192.168.10.1 192.168.10.10
+ip dhcp pool LAN10
+network 192.168.10.0 255.255.255.192
+dns-server 8.8.8.8
+default-router 192.168.10.1
+exit
+
+kikapcs
+HWIC-2T jobb alulra
+bekapcs
+
+int s0/0/0
+ip add 209.165.200.2 255.255.255.224
+no sh
+
+exit
+ip route 0.0.0.0 0.0.0.0 s0/0/0
+
+access-list 1 permit any
+ip nat pool LAN10 209.165.200.3 209.165.200.7 netmask 255.255.255.224
+ip nat inside source list 1 pool LAN10
+int fa0/0
+ip nat inside
+exit
+int s0/0/0
+ip nat outside
+exit
+
+[PAT]
+no ip nat inside source list 1 pool LAN10
+ip nat inside source list 1 pool LAN10 overload
+
+show ip nat translations
+
+ip nat inside source static 192.168.10.2 209.165.200.8
+
+Router1:
+en
+conf t
+hostname ISP
+int s0/0/0
+ip add 209.165.200.1 255.255.255.224
+no sh
+exit
+int fa0/0
+ip add 8.8.8.1 255.255.255.0
+no sh
+
+exit
+ip route 192.168.10.0 255.255.255.192 s0/0/0
+
+Zh:
+
+192.168.10.0 /24
+60 db -> 64 -> 2^6 -> /26  mindíg nagyobbal kezdünk
+30 db -> 32 -> 2^5 -> /27 
+
+64:
+N: 192.168.10.0   -> 00|000000
+F: 192.168.10.1   -> 00|000001
+L: 192.168.10.62  -> 00|111110
+B: 192.168.10.63  -> 00|111111
+S: 192.168.10.192 -> 11|000000
+
+32:
+N: 192.168.10.64  -> 010|00000
+F: 192.168.10.65  -> 010|00001
+L: 192.168.10.94  -> 010|11110
+B: 192.168.10.95  -> 010|11111
+S: 192.168.10.224 -> 111|00000
+
+R3:
+enconf t
+hostname R3
+enable secret class
+line console 0
+password cisco
+login
+line vty 15
+password cisco
+login
+exit
+interface s0/0/0
+ip address 3.3.3.3 255.255.255.254
+no sh
+interface s0/0/1
+ip address 2.2.2.2 255.255.255.254
+no sh
+
+SWB:
+en
+conf t
+vlan 10
+name Muggles
+vlan 20
+name Wizards
+vlan 99
+name BlackHole
+exit
+interface range fa0/1-9
+switchport mode access
+switchport access vlan 10
+exit
+interface range fa0/16-24, g0/2
+switchport mode access
+switchport access vlan 99
+shutdown
+int g0/1
+switchport mode trunk
+exit
+
+R3:
+int fa0/0.10
+encapsulation dot1q 10
+ip address 192.168.10.1 255.255.255.192
+exit
+int fa0/0.20
+encapsulation dot1q 10
+ip address 192.168.10.65 255.255.255.240
+exit
+int fa0/0
+no sh
+exit
+ip dhcp excluded-address 192.168.10.1 192.168.10.5
+ip dhcp excluded-address 192.168.10.65 192.168.10.70
+ip dhcp pool VLAN10P
+network 192.168.10.0 255.255.255.192
+default-router 192.168.10.1
+exit
+ip dhcp pool VLAN20P
+network 192.168.10.64 255.255.255.240
+default-router 192.168.10.65
+exit
+
+R1:
+en
+conf t
+router rip
+version 2
+network 10.10.10.0
+network 1.1.1.0
+network 3.3.3.0
+
+R3:
+router rip
+version 2
+network 192.168.10.0
+network 192.168.10.64
+network 1.1.1.0
+network 3.3.3.0
+
+R2:
+en
+conf the
+ip route 0.0.0.0 0.0.0.0 209.165.200.2
+router rip
+version 2
+network 172.16.10.0
+network 1.1.1.0
+network 2.2.2.0
+default-information originate
+exit
+
+R2:
+int fa0/0
+ip nat inside
+int s0/0/0
+ip nat inside
+int s0/0/1
+ip nat inside
+int s0/1/0
+ip nat outside
+exit
+ip nat inside source static 10.10.10.100 209.165.200.14
+access-list 1 permit 192.168.10.0  0.0.0.255
+ip nat pool NATPOOL 209.165.200.3 209.165.200.10 netmask 255.255.255.240
+ip nat inside source list 1 pool NATPOOL overload
+
+R2:
+access-list 2 permit 10.10.10.0 0.0.0.255
+access-list 3 permit 172.16.10.0 0.0.0.255
+ip nat inside source list 2 interface s0/1/0 overload
+ip nat inside source list 3 interface s0/1/0 overload
+
+
+
+
+
+
+
